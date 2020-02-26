@@ -1,0 +1,78 @@
+body {
+  font-family: 'Roboto';
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 800;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* Three columns, one three times as wide as the others */
+  grid-template-rows: 200px auto 100px; /* Three rows, two with explicit widths */
+  grid-template-areas:
+    "main sidebar";
+}
+
+.main {
+  grid-area: main;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.squared-text {
+  text-transform: uppercase;
+  font-size: 0.65em;
+  border-style: solid;
+  border-width: 4px;
+  padding: 3px;
+}
+
+.squared {
+  font-size: 1.5em;
+  letter-spacing: 3px;
+  border-style: solid;
+  border-width: 3px;
+  padding: 10px;
+  margin: 10px 0 10px;
+  text-align: center;
+}
+
+.blue {
+  border-color: #689bd0;
+}
+
+.green {
+  border-color: #7eaa55;
+}
+
+.yellow {
+  border-color: #f6c143;
+}
+
+.quote {
+  font-size: 2.5em;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.6em;
+}
+
+.question {
+  font-size: 1.5em;
+  font-weight: 800;
+  padding: 30px 0 30px 0;
+  text-align: center;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
