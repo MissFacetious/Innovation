@@ -1,5 +1,6 @@
 body {
   font-family: 'Roboto';
+  margin: 10px;
 }
 
 h1 {
@@ -15,9 +16,10 @@ h3 {
 .grid {
   display: grid;
   grid-template-columns: 3fr 1fr; /* Three columns, one three times as wide as the others */
-  grid-template-rows: 200px auto 100px; /* Three rows, two with explicit widths */
+  grid-template-rows: auto auto; /* Three rows, two with explicit widths */
   grid-template-areas:
-    "main sidebar";
+    "main sidebar"
+    "main .";
 }
 
 .main {
@@ -25,6 +27,24 @@ h3 {
 }
 
 .sidebar {
+  grid-area: sidebar;
+}
+
+.grid-top {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "main sidebar";
+}
+
+.main-top {
+  grid-area: main;
+  text-align: right;
+  margin: 0 50px;
+}
+
+.sidebar-top {
   grid-area: sidebar;
 }
 
@@ -75,4 +95,35 @@ h3 {
 .center {
   margin-left: auto;
   margin-right: auto;
+}
+
+.large-words {
+  font-size: 4em;
+}
+
+.box {
+  padding: 10px 20px;
+  line-height: 1.6em;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.blue-box {
+  background: #689bd0;
+}
+
+.green-box {
+  background: #7eaa55;
+}
+
+.yellow-box {
+  background: #f6c143;
+}
+
+.red-box {
+  background: #eb4034;
+}
+
+.orange-box {
+  background: #ff8303;
 }
