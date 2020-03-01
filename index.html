@@ -4,11 +4,10 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./web/css/site.css">
-
-<script src="./web/src/lightbulb.js"></script>
-<script src="./web/src/map.js"></script>
+<link rel="stylesheet" href="./web/css/venn.css">
 
 <body>
+
   <img class="center" src="./web/images/banner.png" />
   <h1>Creative Innovation: Happy, Healthy, Wealthy, or Wise?</h1>
 
@@ -61,6 +60,8 @@
   </div>
 </div>
 
+<div id="venn"></div>
+
 <div class="map">
   <div onclick="javascript:clickIndex('innovation');" class="circle circle-border top-left button">
     <img class="circle blue-box" src="./web/images/light-bulb-Gear_White.png" />
@@ -81,6 +82,13 @@
   <img src="./web/images/map-example.png" />
 
 </div>
+
+<script src="./web/src/lightbulb.js"></script>
+<script src="./web/src/map.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="./web/lib/venn.min.js"></script>
+<script src="./web/src/five-venn.js"></script>
+
 
 </body>
 </html>

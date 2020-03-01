@@ -1,0 +1,31 @@
+svg path {
+    stroke: white;
+    stroke-width: 2px;
+}
+
+svg text {
+    fill: white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+[data-venn-sets="A"] { fill: #689bd066; } /* blue  */
+[data-venn-sets="B"] { fill: #7eaa5566; } /* green */
+[data-venn-sets="C"] { fill: #f6c14366; } /* yellow */
+[data-venn-sets="D"] { fill: #ff830366; } /* orange  */
+[data-venn-sets="E"] { fill: #eb403466; } /* red */
+[data-venn-sets="A_B"] { fill: #73A39388; } /* blue/green */
+[data-venn-sets="B_C"] { fill: #BAB64C88; } /* green/yellow */
+[data-venn-sets="C_D"] { fill: #FBA22388; } /* yellow/orange */
+[data-venn-sets="D_E"] { fill: #F5621C88; } /* orange/red */
+[data-venn-sets="E_A"] { fill: #AA6E8288; } /* red/blue */
+[data-venn-sets="A_B_C"] { fill: #AFAE8Aaa; } /* blue/yellow */
+[data-venn-sets="A_B_E"] { fill: #B57545aa; } /* green/red */
+[data-venn-sets="A_D_E"] { fill: #B48F6Aaa; } /* blue/orange */
+[data-venn-sets="B_C_D"] { fill: #BF972Caa; } /* green/orange */
+[data-venn-sets="C_D_E"] { fill: #F1813Caa; } /* yellow/red */
+[data-venn-sets="A_B_C_D"] { fill: #B48F6Add; } /* a/d */
+[data-venn-sets="A_B_C_E"] { fill: #F1813Cdd; } /* c/e */
+[data-venn-sets="A_B_D_E"] { fill: #BF972Cdd; } /* b/d */
+[data-venn-sets="A_C_D_E"] { fill: #AFAE8Add; } /* a/c */
+[data-venn-sets="B_C_D_E"] { fill: #B57545dd; } /* b/e */
+[data-venn-sets="A_B_C_D_E"] { fill: #654321dd; } /* */
