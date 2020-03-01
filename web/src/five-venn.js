@@ -1,3 +1,5 @@
+// Using this venn diagram from https://github.com/benfred/venn.js MIT license
+
 // create chart, and turn off default styling (using CSS instead)
 var chart = venn.VennDiagram()
     .styled(false);
@@ -7,6 +9,7 @@ var two = 7;
 var three = 3;
 var four = 2;
 var five = 5;
+
 // draw chart
 d3.select("#venn")
   .datum([
@@ -35,11 +38,16 @@ d3.select("#venn")
   .attr("class", "over")
   .call(chart);
 
-    // add listeners to all the groups to display tooltip on mouseover
-    d3.select("#venn").selectAll("g")
-      .on("mouseover", function(d, i) {
-          // sort all the areas relative to the current item
-          venn.sortAreas(d3.select("#venn"), d);
-          var div = document.getElementById("venn-title");
-          div.innerHTML = d.label;
-      })
+  d3.select("#venn").selectAll("g")
+    .on("mouseclick", function(d, i) {
+      showInfo(d);
+    })
+    .on("mouseover", function(d, i) {
+      showInfo(d);
+    })
+
+function showInfo(d) {
+  venn.sortAreas(d3.select("#venn"), d);
+  var div = document.getElementById("venn-title");
+  div.innerHTML = d.label;
+}
