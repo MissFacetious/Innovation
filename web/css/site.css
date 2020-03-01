@@ -116,6 +116,14 @@ h3 {
 .blue4 {
   background: #045a8d;
 }
+.bulb {
+  width: 242px;
+  margin-left: auto;
+  margin-right: 10%;
+}
+.lightbulb {
+  cursor: pointer;
+}
 .yellow1-solid {
   background: #fd8d3c;
 }
@@ -150,6 +158,11 @@ h3 {
   background: #ccc;
 }
 
+.map {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
 .circle {
   height: 125px;
   width: 125px;
@@ -161,4 +174,32 @@ h3 {
   width: 125px;
   border: 3px solid #666;
   border-radius: 50%;
+}
+.top-left {
+  position: absolute;
+  top: 5%;
+  left: 25%;
+}
+.top-right {
+  position: absolute;
+  top: 5%;
+  right: 25%;
+}
+.left {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+}
+.right {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+}
+.bottom {
+  position: absolute;
+  bottom: 5%;
+  left: 40%;
+}
+.button {
+  cursor: pointer;
 }
