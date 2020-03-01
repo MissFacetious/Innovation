@@ -4,6 +4,9 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./web/css/site.css">
+
+<script src="./web/src/lightbulb.js"></script>
+
 <body>
   <img class="center" src="./web/images/banner.png" />
   <h1>Creative Innovation: Happy, Healthy, Wealthy, or Wise?</h1>
@@ -41,24 +44,40 @@
 
 <div class="grid-top">
   <div class="main-top">
-    <img class="blue4" src="./web/images/lightbulb/invert_01.png" />
-    <img class="blue3" src="./web/images/lightbulb/invert_02.png" />
-    <img class="blue2" src="./web/images/lightbulb/invert_03.png" />
-    <img class="blue1" src="./web/images/lightbulb/invert_04.png" />
-    <img class="gray" src="./web/images/lightbulb/invert_05.png" />
+    <img class="yellow1-solid" id="bulb1" onmouseover="javascript:showCountry(1);" src="./web/images/lightbulb/lightbulb_01.png" />
+    <img class="yellow2-solid" id="bulb2" onmouseover="javascript:showCountry(2);" src="./web/images/lightbulb/lightbulb_02.png" />
+    <img class="yellow3-solid" id="bulb3" onmouseover="javascript:showCountry(3);" src="./web/images/lightbulb/lightbulb_03.png" />
+    <img class="yellow4-solid" id="bulb4" onmouseover="javascript:showCountry(4);" src="./web/images/lightbulb/lightbulb_04.png" />
+    <img class="yellow5-solid" id="bulb5" onmouseover="javascript:showCountry(5);" src="./web/images/lightbulb/lightbulb_05.png" />
+    <img class="gray" src="./web/images/lightbulb/base.png" />
   </div>
   <div class="sidebar-top">
     <h1>Top 5 Innovative Countries</h1>
-    <h3>This One</h3>
-    <h3>That one</h3>
-    <h3>Another One</h3>
-    <h3>Don't Forget This One</h3>
-    <h3>And Finally This</h3>
+    <h3><span id="top5-number">#1</span> <span id="top5-title">This One</span></h3>
+    <p id="top5-summary">A Summary of the country's innovation.</h4>
   </div>
 </div>
 
 <div>
-  <img src="./web/images/map-example.png" />
+  <div class="circle circle-border">
+    <img class="circle blue-box" src="./web/images/light-bulb-Gear_White.png" />
+  </div>
+  <div class="circle circle-border">
+    <img class="circle orange-box" src="./web/images/grad-cap_White.png" />
+  </div>
+  <div class="circle circle-border">
+    <img class="circle green-box" src="./web/images/piggy-bank_White.png" />
+  </div>
+  <div class="circle circle-border">
+    <img class="circle red-box" src="./web/images/hospital_White.png" />
+  </div>
+  <div class="circle circle-border">
+    <img class="circle yellow-box" src="./web/images/meditate_White.png" />
+  </div>
+
+
+    <img src="./web/images/map-example.png" />
+
 </div>
 
 </body>
