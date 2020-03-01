@@ -10,11 +10,11 @@ var five = 5;
 // draw chart
 d3.select("#venn")
   .datum([
-    { sets: ['A'], size: one },
-    { sets: ['B'], size: one },
-    { sets: ['C'], size: one },
-    { sets: ['D'], size: one },
-    { sets: ['E'], size: one },
+    { sets: ['A'], size: one, label : 'A' },
+    { sets: ['B'], size: one, label : 'B' },
+    { sets: ['C'], size: one, label : 'C' },
+    { sets: ['D'], size: one, label : 'D' },
+    { sets: ['E'], size: one, label : 'E' },
     { sets: ['A','B'], size: two, label : 'AB' },
     { sets: ['B','C'], size: two, label : 'BC' },
     { sets: ['C','D'], size: two, label : 'CD' },
@@ -32,6 +32,7 @@ d3.select("#venn")
     { sets: ['B','C','D','E'], size: four, label : 'BCDE' },
     { sets: ['A','B','C','D','E'], size: five, label : 'ABCDE' }
   ])
+  .attr("class", "over")
   .call(chart);
 
     // add listeners to all the groups to display tooltip on mouseover
@@ -39,5 +40,6 @@ d3.select("#venn")
       .on("mouseover", function(d, i) {
           // sort all the areas relative to the current item
           venn.sortAreas(d3.select("#venn"), d);
-          console.log(d.label);
+          var div = document.getElementById("venn-title");
+          div.innerHTML = d.label;
       })

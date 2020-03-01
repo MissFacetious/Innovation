@@ -1,11 +1,11 @@
 svg path {
-    stroke: white;
+    stroke: #666;
     stroke-width: 2px;
 }
 
 svg text {
-    fill: white;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    fill: #fff;
+    font-family: "Roboto",Helvetica,Arial,sans-serif;
     font-size: 14px;
 }
 [data-venn-sets="A"] { fill: #689bd066; } /* blue  */

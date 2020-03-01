@@ -45,11 +45,11 @@
 <div class="grid-top">
   <div class="main-top">
     <div class="bulb">
-      <img class="yellow1-solid lightbulb" id="bulb1" onmouseover="javascript:showCountry(1);" src="./web/images/lightbulb/lightbulb_01.png" />
-      <img class="yellow2-solid lightbulb" id="bulb2" onmouseover="javascript:showCountry(2);" src="./web/images/lightbulb/lightbulb_02.png" />
-      <img class="yellow3-solid lightbulb" id="bulb3" onmouseover="javascript:showCountry(3);" src="./web/images/lightbulb/lightbulb_03.png" />
-      <img class="yellow4-solid lightbulb" id="bulb4" onmouseover="javascript:showCountry(4);" src="./web/images/lightbulb/lightbulb_04.png" />
-      <img class="yellow5-solid lightbulb" id="bulb5" onmouseover="javascript:showCountry(5);" src="./web/images/lightbulb/lightbulb_05.png" />
+      <img class="yellow1-solid over" id="bulb1" onmouseover="javascript:showCountry(1);" src="./web/images/lightbulb/lightbulb_01.png" />
+      <img class="yellow2-solid over" id="bulb2" onmouseover="javascript:showCountry(2);" src="./web/images/lightbulb/lightbulb_02.png" />
+      <img class="yellow3-solid over" id="bulb3" onmouseover="javascript:showCountry(3);" src="./web/images/lightbulb/lightbulb_03.png" />
+      <img class="yellow4-solid over" id="bulb4" onmouseover="javascript:showCountry(4);" src="./web/images/lightbulb/lightbulb_04.png" />
+      <img class="yellow5-solid over" id="bulb5" onmouseover="javascript:showCountry(5);" src="./web/images/lightbulb/lightbulb_05.png" />
       <img class="gray" src="./web/images/lightbulb/base.png" />
     </div>
   </div>
@@ -60,26 +60,35 @@
   </div>
 </div>
 
-<div id="venn"></div>
+<div class="grid-venn">
+  <div class="sidebar-venn">
+    <h1><span id="venn-title">This One</span></h1>
+    <h3>Combined Traits</h3>
+    <p id="venn-summary">A Summary of the sample country's traits.</h4>
+  </div>
+  <div class="main-venn">
+    <div class="venn" id="venn"></div>
+  </div>
+</div>
 
 <div class="map">
-  <div onclick="javascript:clickIndex('innovation');" class="circle circle-border top-left button">
+  <div onclick="javascript:clickIndex('innovation');" class="circle circle-border top-left over">
     <img class="circle blue-box" src="./web/images/light-bulb-Gear_White.png" />
   </div>
-  <div onclick="javascript:clickIndex('education');" class="circle circle-border top-right button">
+  <div onclick="javascript:clickIndex('education');" class="circle circle-border top-right over">
     <img class="circle orange-box" src="./web/images/grad-cap_White.png" />
   </div>
-  <div onclick="javascript:clickIndex('wealth');" class="circle circle-border left button">
+  <div onclick="javascript:clickIndex('wealth');" class="circle circle-border left over">
     <img class="circle green-box" src="./web/images/piggy-bank_White.png" />
   </div>
-  <div onclick="javascript:clickIndex('health');" class="circle circle-border right button">
+  <div onclick="javascript:clickIndex('health');" class="circle circle-border right over">
     <img class="circle red-box" src="./web/images/hospital_White.png" />
   </div>
-  <div onclick="javascript:clickIndex('mental');" class="circle circle-border bottom button">
+  <div onclick="javascript:clickIndex('mental');" class="circle circle-border bottom over">
     <img class="circle yellow-box" src="./web/images/meditate_White.png" />
   </div>
 
-  <img src="./web/images/map-example.png" />
+  <img src="./web/images/map-example.png" width="100%"/>
 
 </div>
 

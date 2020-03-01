@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto';
+  font-family: "Roboto",Helvetica,Arial,sans-serif;
   margin: 10px;
 }
 h1 {
@@ -122,7 +122,7 @@ h3 {
   margin-left: auto;
   margin-right: 10%;
 }
-.lightbulb {
+.over {
   cursor: pointer;
 }
 .yellow1-solid {
@@ -201,6 +201,28 @@ h3 {
   bottom: 5%;
   left: 40%;
 }
-.button {
+
+.grid-venn {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "sidebar main";
+}
+.main-venn {
+  grid-area: main;
+  text-align: left;
+  margin: 0 50px;
+}
+.sidebar-venn {
+  grid-area: sidebar;
+  text-align: right;
+}
+.venn {
+  width: 600px;
+  margin-left: -100px;
+  margin-right: auto;
+}
+.set {
   cursor: pointer;
 }
