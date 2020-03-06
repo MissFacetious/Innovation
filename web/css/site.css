@@ -226,3 +226,85 @@ h3 {
 .set {
   cursor: pointer;
 }
+
+.text-box {
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 20px;
+  max-width: 450px;
+  min-height: 200px;
+  font-size: 2em;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.item1 { grid-area: image1; margin-left: -10px; margin-right: -20px; }
+.item2 { grid-area: money; width: 150px; }
+.item3 { grid-area: blank; }
+.item4 { grid-area: education; width: 100px; text-align: left; }
+.item5 { grid-area: horizontal; }
+.item6 { grid-area: dollar; text-align: right; }
+.item7 { grid-area: together; text-align: center; width: 50px; }
+.item8 { grid-area: image2; }
+
+.grid-box {
+  display: grid;
+  grid-template-areas:
+    'image1 money blank image2 education horizontal'
+    'dollar money together together education horizontal';
+  grid-gap: 5px;
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.updown {
+  text-transform: uppercase;
+  text-align: center;
+  transform: rotate(90deg);
+  max-height: 200px;
+  font-size: 0.3em;
+  width: 15px;
+  height: 50px;
+  margin-left: -25px;
+}
+
+.big {
+  font-size: 3em;
+}
+
+.small-circle {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.line {
+  text-align: justify;
+  line-height: 0.7em;
+}
+
+.line:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.spin {
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.sixth {
+  animation-duration: 0.7s;
+}
+.seventh {
+  animation-duration: 0.7s;
+}
+
+@keyframes spin {
+  from { transform: rotateX(0deg); }
+  to { transform: rotateX(-360deg); }
+}
