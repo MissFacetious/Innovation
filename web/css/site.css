@@ -24,7 +24,7 @@ h3 {
 }
 .main {
   grid-area: main;
-  min-width: 512px;
+  min-width: 320px;
 }
 .sidebar {
   grid-area: sidebar;
@@ -217,12 +217,15 @@ h3 {
 .main-venn {
   grid-area: main-venn;
   text-align: left;
-  margin: 0 50px;
+  min-width: 512px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .sidebar-venn {
   grid-area: sidebar-venn;
   text-align: right;
-  margin-right: 20%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .venn {
   width: 512px;
@@ -315,10 +318,18 @@ h3 {
   to { transform: rotateX(-360deg); }
 }
 
+@viewport {
+  width: device-width ;
+  zoom: 1.0 ;
+}
+
 @media (max-width: 1024px) {
+  body {
+
+  }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(512px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-template-rows: auto auto;
     grid-template-areas:
       "main"
@@ -326,18 +337,32 @@ h3 {
   }
   .grid-venn {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(512px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-template-rows: auto auto;
     grid-template-areas:
       "sidebar-venn"
       "main-venn";
   }
+  .main-venn {
+    grid-area: main-venn;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .grid-top {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(512px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-template-rows: auto auto;
     grid-template-areas:
       "sidebar-top"
       "main-top";
+  }
+  .text-box {
+    color: #fff;
+    border-radius: 20px;
+    min-height: 180px;
+    font-size: 1.7em;
+    text-align: justify;
+    text-justify: inter-word;
   }
 }
