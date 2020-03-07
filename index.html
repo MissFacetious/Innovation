@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Creative Innovation: Happy, Healthy, Wealthy, or Wise?</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Creative Innovation: Happy, Healthy, Wealthy, or Wise?</title>
 
-<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./web/css/site.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./web/css/site.css">
 <link rel="stylesheet" href="./web/css/venn.css">
+</head>
 
 <body>
-
-  <img class="center" src="./web/images/banner.png" />
+  <div class="grid-banner">
+    <img class="center" src="./web/images/banner1.png" />
+    <img class="center" src="./web/images/banner2.png" />
+    <img class="center" src="./web/images/banner3.png" />
+  </div>
   <h1>Creative Innovation: Happy, Healthy, Wealthy, or Wise?</h1>
 
   <h3>Marc Boulet, Minkwon Lee, Michael Migliacio, Ricardo Stamato, Lisa Walkosz-Migliacio, Catherine Yin</h3>
@@ -60,6 +66,21 @@
   </div>
 </div>
 
+<div class="text-box center blue-box">
+  <div class="grid-box">
+    <div class="item1"><img class="small-circle green-box" src="./web/images/piggy-bank_White.png" /></div>
+    <div class="item2 spin seventh big" id="money" onmouseover="javascript:stopMoney();" onclick="javascript:stopMoney();">00k</div>
+    <div class="item3"></div>
+    <div class="item4 spin sixth big" id="education" onmouseover="javascript:stopEducation();" onclick="javascript:stopEducation();">BS</div>
+    <div class="item5 updown">bachelor's degree</div>
+    <div class="item6">$</div>
+    <div class="item7">&amp; a</div>
+    <div class="item8"><img class="small-circle orange-box" src="./web/images/grad-cap_White.png" /></div>
+  </div>
+  <div class="line">is the inflection point of an</div>
+  <div class="line">i n n o v a t i v e &nbsp; &nbsp; s o c i e t y</div>
+</div>
+
 <div class="grid-venn">
   <div class="sidebar-venn">
     <h1><span id="venn-title">This One</span></h1>
@@ -71,33 +92,13 @@
   </div>
 </div>
 
-<div class="map">
-  <div onclick="javascript:clickIndex('innovation');" class="circle circle-border top-left over">
-    <img class="circle blue-box" src="./web/images/light-bulb-Gear_White.png" />
-  </div>
-  <div onclick="javascript:clickIndex('education');" class="circle circle-border top-right over">
-    <img class="circle orange-box" src="./web/images/grad-cap_White.png" />
-  </div>
-  <div onclick="javascript:clickIndex('wealth');" class="circle circle-border left over">
-    <img class="circle green-box" src="./web/images/piggy-bank_White.png" />
-  </div>
-  <div onclick="javascript:clickIndex('health');" class="circle circle-border right over">
-    <img class="circle red-box" src="./web/images/hospital_White.png" />
-  </div>
-  <div onclick="javascript:clickIndex('mental');" class="circle circle-border bottom over">
-    <img class="circle yellow-box" src="./web/images/meditate_White.png" />
-  </div>
-
-  <img src="./web/images/map-example.png" width="100%"/>
-
-</div>
+<p>Putting it all together with our <a href="map.html">interactive map</a>.</p>
 
 <script src="./web/src/lightbulb.js"></script>
-<script src="./web/src/map.js"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="./web/lib/venn.min.js"></script>
 <script src="./web/src/five-venn.js"></script>
-
+<script src="./web/src/text.js"></script>
 
 </body>
 </html>

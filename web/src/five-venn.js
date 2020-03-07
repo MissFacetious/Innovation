@@ -6,9 +6,9 @@ var chart = venn.VennDiagram()
 
 var one = 15;
 var two = 7;
-var three = 3;
-var four = 2;
-var five = 5;
+var three = 4;
+var four = 4;
+var five = 4;
 
 // draw chart
 d3.select("#venn")
