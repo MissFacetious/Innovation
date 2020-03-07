@@ -46,10 +46,10 @@ h3 {
 }
 .squared-text {
   text-transform: uppercase;
-  font-size: 0.65em;
+  font-size: 0.5em;
   border-style: solid;
   border-width: 4px;
-  padding: 3px;
+  padding: 2px;
   white-space: nowrap;
 }
 .squared {
@@ -87,10 +87,10 @@ h3 {
   margin-right: auto;
 }
 .large-words {
-  font-size: 4em;
+  font-size: 3.5em;
 }
 .box {
-  padding: 10px 20px;
+  padding: 10px 10px;
   line-height: 1.6em;
   color: #fff;
   border-radius: 20px;
@@ -323,9 +323,9 @@ h3 {
   zoom: 1.0 ;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   body {
-
+    margin: 0;
   }
   .grid {
     display: grid;
