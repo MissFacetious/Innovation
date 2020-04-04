@@ -2,13 +2,20 @@ function clickIndex(value) {
   console.log("you click " + value + " index")
 }
 
+var margin = {top: 100, right: 50, bottom: 50, left: 50}
+  , width = 700 - margin.left - margin.right // Use the window's width
+  , height = 550 - margin.top - margin.bottom; // Use the window's height
+
 var worldInfo;
 
 var countries = []
 function chart() {
 
-  var myColor = d3.scaleSequential().domain([0,3])
-  .interpolator(d3.interpolateViridis);
+  var myColor = d3.scaleSequential()
+    .domain([0,3])
+    .interpolator(d3.interpolateViridis);
+
+  console.log(myColor)
 
   var svg = d3.select("#map").append("svg")
     .attr("width", width)
@@ -56,6 +63,44 @@ function chart() {
     .attr("stroke", "white")
     .attr("stroke-linejoin", "round")
     .attr("d", path);
+
+
+    var legendData = [
+      { "color": "#31688E", "name": "0" },
+      { "color": "#35B779", "name": "1" },
+      { "color": "#440154", "name": "2" },
+      { "color": "#00B3B3", "name": "no data" },
+    ]
+
+    var legend = svg.append("g")
+      .attr("class", "legend")
+      .attr("x", width - 105)
+      .attr("y", 75)
+      .attr("height", 100)
+      .attr("width", 100);
+
+      legend.selectAll('g').data(legendData)
+        .enter()
+        .append('g')
+        .each(function(d, i) {
+          var g = d3.select(this);
+
+          g.append("rect")
+            .attr("x", width - margin.right - 50)
+            .attr("y", i*15)
+            .attr("width", 10)
+            .attr("height", 10)
+            .style("fill", d.color)
+
+          g.append("text")
+            .attr("x", width - margin.right - 35)
+            .attr("y", i * 15+8)
+            .attr("text-anchor","start")
+            .attr("height",30)
+            .attr("width",100)
+            .attr("font-size", 10)
+            .text(d.name);
+          });
 }
 
 var width = 975;
