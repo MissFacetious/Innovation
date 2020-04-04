@@ -65,7 +65,7 @@ var data = [];
 
 var promises = [
   d3.json("./web/data/countries-50m.json"),
-  d3.dsv(",", "../data_analysis/kmeans_results_all.csv", function(d) {
+  d3.dsv(",", "./data_analysis/kmeans_results_all.csv", function(d) {
     data.push(d);
   })
   /*,
