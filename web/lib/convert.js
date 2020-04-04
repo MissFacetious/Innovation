@@ -235,9 +235,10 @@ var convert = new Map([
 
 function convertCountries(data) {
   for (var i=0; i < data.length; i++) {
+    var iso = data[i].country_iso;
     // if found in convert...
-    if (convert.get(data[i]) !== undefined) {
-      data[i] = convert.get(data[i])
+    if (convert.get(iso) !== undefined) {
+      data[i].country_iso = convert.get(iso)
     }
   }
   return data;
