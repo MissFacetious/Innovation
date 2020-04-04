@@ -43,15 +43,15 @@ function chart() {
         .attr("fill", function(d) {
           for (var i=0; i < myData.length; i++) {
             if (myData[i].country_iso === d.properties.name) {
+              //console.log(d.properties.name + " " + myData[i].clusters_3);
               return myColor(myData[i].clusters_3);
             }
           }
-          //console.log(d.properties.name);
           return "#00b3b3";
         })
         .attr("d", path)
         .on("click", function(d) {
-          alert(d.properties.name)
+          //alert(d.properties.name)
         })
     //  .append("title")
     //    .text(d => `${d.properties.name}
@@ -66,9 +66,9 @@ function chart() {
 
 
     var legendData = [
-      { "color": "#31688E", "name": "0" },
-      { "color": "#35B779", "name": "1" },
-      { "color": "#440154", "name": "2" },
+      { "color": "#440154", "name": "0" },
+      { "color": "#31688E", "name": "1" },
+      { "color": "#35B779", "name": "2" },
       { "color": "#00B3B3", "name": "no data" },
     ]
 
