@@ -11,10 +11,21 @@
 
   <h1>Creative Innovation: Happy, Healthy, Wealthy, or Wise?</h1>
 
+<select id="valueMap" onChange="javascript:clickIndex()">
+  <option>kmeans_results_all</option>
+  <option>kmeans_results_all_creative</option>
+  <option>kmeans_results_all_non_creative</option>
+  <option>kmeans_results_curated_creative</option>
+  <option>kmeans_results_curated_non_creative</option>
+  <option>kmeans_results_curated</option>
+</select>
+
+<input id="valueCluster" onChange="javascript:clickIndex()" type="range" min="3" max="8" value="3" class="slider">
+
+<div id="selectValue"></div>
+
 <div id="map" class="map">
 </div>
-
-
 
 <p>Back to our <a href="index.html">summary</a>.</p>
 

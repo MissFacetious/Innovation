@@ -1,5 +1,19 @@
-function clickIndex(value) {
-  console.log("you click " + value + " index")
+var currentMap = 0;
+var currentCluster = 'clusters_3';
+
+function clickIndex() {
+  var valueMap = document.getElementById("valueMap").value;
+  var valueCluster = document.getElementById("valueCluster").value;
+  if (valueMap==='kmeans_results_all') currentMap = 0;
+  if (valueMap==='kmeans_results_all_creative') currentMap = 1;
+  if (valueMap==='kmeans_results_all_non_creative') currentMap = 2;
+  if (valueMap==='kmeans_results_curated_creative') currentMap = 3;
+  if (valueMap==='kmeans_results_curated_non_creative') currentMap = 4;
+  if (valueMap==='kmeans_results_curated') currentMap = 5;
+  currentCluster = 'clusters_'+valueCluster
+
+  selectValue.innerHTML = "File: " + valueMap + "<br/>Column: " + currentCluster;
+  updateData();
 }
 
 var margin = {top: 100, right: 50, bottom: 50, left: 50}
@@ -7,17 +21,20 @@ var margin = {top: 100, right: 50, bottom: 50, left: 50}
   , height = 550 - margin.top - margin.bottom; // Use the window's height
 
 var worldInfo;
-
 var countries = []
+var svg;
+var legend;
+
 function chart() {
 
+  var min = d3.min(myData.map(function(d) { return +d[currentCluster]; }))
+  var max = d3.max(myData.map(function(d) { return +d[currentCluster]; }))
+
   var myColor = d3.scaleSequential()
-    .domain([0,3])
+    .domain([min, max])
     .interpolator(d3.interpolateViridis);
 
-  console.log(myColor)
-
-  var svg = d3.select("#map").append("svg")
+  svg = d3.select("#map").append("svg")
     .attr("width", width)
     .attr("height", height);
 
@@ -34,45 +51,37 @@ function chart() {
     .enter().append("path")
     .attr("d", path)
 
-    const g = svg.append("g")
-
-    g.append("g")
-      .selectAll("path")
-      .data(countries.features)
-      .join("path")
-        .attr("fill", function(d) {
-          for (var i=0; i < myData.length; i++) {
-            if (myData[i].country_iso === d.properties.name) {
-              //console.log(d.properties.name + " " + myData[i].clusters_3);
-              return myColor(myData[i].clusters_3);
-            }
+  svg.append("g")
+    .selectAll("path")
+    .data(countries.features)
+    .join("path")
+      .attr("fill", function(d) {
+        for (var i=0; i < myData.length; i++) {
+          if (myData[i].country_iso === d.properties.name) {
+            return myColor(myData[i][currentCluster]);
           }
-          return "#00b3b3";
-        })
-        .attr("d", path)
-        .on("click", function(d) {
-          //alert(d.properties.name)
-        })
-    //  .append("title")
-    //    .text(d => `${d.properties.name}
-    //${data.has(d.properties.name) ? data.get(d.properties.name) : "N/A"}`);
+        }
+        return "#aaaaaa";
+      })
+      .attr("d", path)
+      .on("click", function(d) {
+        //alert(d.properties.name)
+      })
 
-  g.append("path")
+  svg.append("path")
     .datum(topojson.mesh(worldInfo, worldInfo.objects.countries, (a, b) => a !== b))
     .attr("fill", "none")
     .attr("stroke", "white")
     .attr("stroke-linejoin", "round")
     .attr("d", path);
 
+    var legendData = []
+    for (var i=0; i <= max-min; i++) {
+      legendData.push({color: myColor(i), name: i})
+    }
+    legendData.push({color: "#aaaaaa", name: "no data"});
 
-    var legendData = [
-      { "color": "#440154", "name": "0" },
-      { "color": "#31688E", "name": "1" },
-      { "color": "#35B779", "name": "2" },
-      { "color": "#00B3B3", "name": "no data" },
-    ]
-
-    var legend = svg.append("g")
+    legend = svg.append("g")
       .attr("class", "legend")
       .attr("x", width - 105)
       .attr("y", 75)
@@ -103,33 +112,97 @@ function chart() {
           });
 }
 
+function updateData() {
+    // Get the data again
+    myData = convertCountries(data[currentMap]);
+
+    var min = d3.min(myData.map(function(d) { return +d[currentCluster]; }))
+    var max = d3.max(myData.map(function(d) { return +d[currentCluster]; }))
+
+    var myColor = d3.scaleSequential()
+      .domain([min, max])
+      .interpolator(d3.interpolateViridis);
+    // Select the section we want to apply our changes to
+    countries = topojson.feature(worldInfo, worldInfo.objects.countries);
+    // Make the changes
+    svg.selectAll("path")
+      .data(countries.features)
+      .join("path")
+        .attr("fill", function(d) {
+          for (var i=0; i < myData.length; i++) {
+            if (myData[i].country_iso === d.properties.name) {
+              return myColor(myData[i][currentCluster]);
+            }
+          }
+          return "#aaaaaa";
+        })
+        .datum(topojson.mesh(worldInfo, worldInfo.objects.countries, (a, b) => a !== b))
+        .attr("stroke", "white")
+        .attr("stroke-linejoin", "round")
+
+        var legendData = []
+        for (var i=0; i <= max-min; i++) {
+          legendData.push({color: myColor(i), name: i})
+        }
+        legendData.push({color: "#aaaaaa", name: "no data"});
+
+        legend.selectAll('g').data(legendData)
+          .enter()
+          .append('g')
+          .each(function(d, i) {
+            var g = d3.select(this);
+            g.append("rect")
+              .attr("x", width - margin.right - 50)
+              .attr("y", i*15)
+              .attr("width", 10)
+              .attr("height", 10)
+              .style("fill", d.color)
+
+            g.append("text")
+              .attr("x", width - margin.right - 35)
+              .attr("y", i * 15+8)
+              .attr("text-anchor","start")
+              .attr("height",30)
+              .attr("width",100)
+              .attr("font-size", 10)
+              .text(d.name);
+            });
+}
+
 var width = 975;
 var height = 475;
 
-var data = [];
+var data = [[], [], [], [], [], []];
+
+var maps = [
+  "kmeans_results_all",
+  "kmeans_results_all_creative",
+  "kmeans_results_all_non_creative",
+  "kmeans_results_curated",
+  "kmeans_results_curated_creative",
+  "kmeans_results_curated_non_creative",
+];
 
 var promises = [
   d3.json("./web/data/countries-50m.json"),
   d3.dsv(",", "./data_analysis/kmeans_results_all.csv", function(d) {
-    data.push(d);
-  })
-  /*,
+    data[0].push(d);
+  }),
   d3.dsv(",", "../data_analysis/kmeans_results_all_creative.csv", function(d) {
-    data.push(d);
+    data[1].push(d);
   }),
   d3.dsv(",", "../data_analysis/kmeans_results_all_non_creative.csv", function(d) {
-    data.push(d);
+    data[2].push(d);
   }),
   d3.dsv(",", "../data_analysis/kmeans_results_curated_creative.csv", function(d) {
-    data.push(d);
+    data[3].push(d);
   }),
   d3.dsv(",", "../data_analysis/kmeans_results_curated_non_creative.csv", function(d) {
-    data.push(d);
+    data[4].push(d);
   }),
   d3.dsv(",", "../data_analysis/kmeans_results_curated.csv", function(d) {
-    data.push(d);
+    data[5].push(d);
   })
-  */
 ]
 
 Promise.all(promises).then(function(world) {
@@ -137,9 +210,9 @@ Promise.all(promises).then(function(world) {
   worldInfo = world[0];
   // example of array of iso country codes that get converted to our map safe names
 
-  myData = convertCountries(data);
+  myData = convertCountries(data[currentMap]);
 
-  console.log(myData)
   countries = topojson.feature(worldInfo, worldInfo.objects.countries);
   chart();
+  clickIndex();
 });
