@@ -83,6 +83,7 @@ function chart() {
 
     legend = svg.append("g")
       .attr("class", "legend")
+      .attr("id", "legend")
       .attr("x", width - 105)
       .attr("y", 75)
       .attr("height", 100)
@@ -146,6 +147,16 @@ function updateData() {
         }
         legendData.push({color: "#aaaaaa", name: "no data"});
 
+        d3.select("#legend").remove();
+
+        legend = svg.append("g")
+          .attr("class", "legend")
+          .attr("id", "legend")
+          .attr("x", width - 105)
+          .attr("y", 75)
+          .attr("height", 100)
+          .attr("width", 100);
+          
         legend.selectAll('g').data(legendData)
           .enter()
           .append('g')
