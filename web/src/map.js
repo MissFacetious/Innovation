@@ -50,34 +50,22 @@ function chart() {
 var width = 975;
 var height = 475;
 
+var data = [];
+
 var promises = [
-  d3.json("./web/data/countries-50m.json")
+  d3.json("./web/data/countries-50m.json"),
+  //d3.dsv(",", "./web/data/country-codes_csv.csv", function(d) {
+  //  data.push(d);
+  //})
 ]
 
 Promise.all(promises).then(function(world) {
-  worldInfo = world[0];
-  var myData = [
-  // all possible countries to convert
-    "Zimbabwe",
-    "Zambia",
-    "Yemen",
-    "Viet Nam",
-    "Venezuela (Bolivarian Republic of)",
-    "Vanuatu",
-    "Uzbekistan",
-    "Uruguay",
-    "Micronesia (Federated States of)",
-    "Marshall Islands",
-    "Northern Mariana Islands",
-    "United States Virgin Islands",
-    "Guam",
-    "American Samoa",
-    "Puerto Rico",
-    "United States of America",
-    "South Georgia and the South Sandwich Islands",
-    "British Indian Ocean Territory"];
 
-  myData = convertCountries(myData)
-  countries = topojson.feature(worldInfo, worldInfo.objects.countries)
+  worldInfo = world[0];
+  // example of array of iso country codes that get converted to our map safe names
+  var myData = ["ZWE", "URY", "USA", "TUR"];
+  myData = convertCountries(myData);
+  //console.log(myData)
+  countries = topojson.feature(worldInfo, worldInfo.objects.countries);
   chart();
 });
