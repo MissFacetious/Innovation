@@ -196,22 +196,22 @@ var maps = [
 
 var promises = [
   d3.json("./web/data/countries-50m.json"),
-  d3.dsv(",", "./data_analysis/kmeans_results_all.csv", function(d) {
+  d3.dsv(",", "./data_analysis/unsupervised/kmeans_results_all.csv", function(d) {
     data[0].push(d);
   }),
-  d3.dsv(",", "./data_analysis/kmeans_results_all_creative.csv", function(d) {
+  d3.dsv(",", "./data_analysis/unsupervised/kmeans_results_all_creative.csv", function(d) {
     data[1].push(d);
   }),
-  d3.dsv(",", "./data_analysis/kmeans_results_all_non_creative.csv", function(d) {
+  d3.dsv(",", "./data_analysis/unsupervised/kmeans_results_all_non_creative.csv", function(d) {
     data[2].push(d);
   }),
-  d3.dsv(",", "./data_analysis/kmeans_results_curated_creative.csv", function(d) {
+  d3.dsv(",", "./data_analysis/unsupervised/kmeans_results_curated_creative.csv", function(d) {
     data[3].push(d);
   }),
-  d3.dsv(",", "./data_analysis/kmeans_results_curated_non_creative.csv", function(d) {
+  d3.dsv(",", "./data_analysis/unsupervised/kmeans_results_curated_non_creative.csv", function(d) {
     data[4].push(d);
   }),
-  d3.dsv(",", "./data_analysis/kmeans_results_curated.csv", function(d) {
+  d3.dsv(",", "./data_analysis/unsupervised/kmeans_results_curated.csv", function(d) {
     data[5].push(d);
   })
 ]
