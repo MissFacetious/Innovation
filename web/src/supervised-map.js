@@ -21,17 +21,17 @@ var legend;
 
 function returnColumn(d, value) {
   if (value === 2) {
-    return +Math.abs(d['gii_innovation_output'] - d['prediction']);
+    return +Math.floor(Math.abs(d['gii_innovation_output'] - d['prediction']) /5);
   }
   if (value === 0) value = 'gii_innovation_output';
   if (value === 1) value = 'prediction';
-  return d[value];
+  return Math.floor(d[value]/5);
 }
 
 function chart() {
-  var min = d3.min(myData.map(function(d) { return +returnColumn(d, currentMap); }))
-  var max = d3.max(myData.map(function(d) { return +returnColumn(d, currentMap); }))
-  var myColor = d3.scaleLinear();
+  var min = 0;
+  var max = 1;
+  var myColor = d3.scaleLinear()
 
   svg = d3.select("#map").append("svg")
     .attr("width", width)
@@ -75,7 +75,8 @@ function chart() {
     .attr("d", path);
 
     var legendData = []
-    for (var i=0; i <= max-min; i++) {
+    console.log(max + " " + min);
+    for (var i=0; i <= (max*10-min*10); i++) {
       legendData.push({color: myColor(i), name: i})
     }
     legendData.push({color: "#aaaaaa", name: "no data"});
@@ -85,13 +86,13 @@ function updateData() {
     // Get the data again
     myData = convertCountries(data);
 
-    var min = d3.min(myData.map(function(d) { return +returnColumn(d, currentMap); }))
-    var max = d3.max(myData.map(function(d) { return +returnColumn(d, currentMap); }))
+    var min = Math.floor(d3.min(myData.map(function(d) { return +returnColumn(d, currentMap); })) / 1);
+    var max = Math.ceil(d3.max(myData.map(function(d) { return +returnColumn(d, currentMap); })) / 1);
 
     var myColor = d3.scaleLinear()
       .domain(d3.range(min, max))
-      .range(['#d73027', '#1a9850'])
-      .interpolate(d3.interpolateHcl);
+      .range(d3.quantize(d3.interpolateHcl("#f4e153", "#362142"), 10));
+
     // Select the section we want to apply our changes to
     countries = topojson.feature(worldInfo, worldInfo.objects.countries);
     // Make the changes
@@ -112,7 +113,12 @@ function updateData() {
 
         var legendData = []
         for (var i=0; i <= max-min; i++) {
-          legendData.push({color: myColor(i), name: i})
+          if ((max-min) === i) {
+            legendData.push({color: myColor(i), name: (i*5) + "+ "})
+          }
+          else {
+            legendData.push({color: myColor(i), name: (i*5) + " - " + ((i+1)*5-1)})
+          }
         }
         legendData.push({color: "#aaaaaa", name: "no data"});
 
