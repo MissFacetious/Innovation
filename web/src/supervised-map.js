@@ -1,25 +1,27 @@
-var currentMap = 0;
+var currentSupervisedMap = 0;
+var mySupervisedData = [];
 
-function clickIndex() {
-  var valueMap = document.getElementById("valueMap").value;
+function clickSupervisedIndex() {
+  var valueMap = document.getElementById("supervisedValueMap").value;
+  var selectValue = document.getElementById("supervisedSelectValue");
   selectValue.innerHTML = "File: " + valueMap;
   if (valueMap === 'innovation output') valueMap = 0;
   if (valueMap === 'prediction') valueMap = 1;
   if (valueMap === 'innovation output - prediction') valueMap = 2;
-  currentMap = valueMap;
-  updateData();
+  currentSupervisedMap = valueMap;
+  updateSupervisedData();
 }
 
 var margin = {top: 100, right: 50, bottom: 50, left: 50}
   , width = 700 - margin.left - margin.right // Use the window's width
   , height = 550 - margin.top - margin.bottom; // Use the window's height
 
-var worldInfo;
-var countries = []
-var svg;
-var legend;
+var supervisedWorldInfo;
+var supervisedCountries = []
+var supervisedSvg;
+var supervisedLegend;
 
-function returnColumn(d, value) {
+function returnSupervisedColumn(d, value) {
   if (value === 2) {
     return +Math.floor(Math.abs(d['gii_innovation_output'] - d['prediction']) /5);
   }
@@ -28,12 +30,12 @@ function returnColumn(d, value) {
   return Math.floor(d[value]/5);
 }
 
-function chart() {
+function supervisedChart() {
   var min = 0;
   var max = 1;
   var myColor = d3.scaleLinear()
 
-  svg = d3.select("#map").append("svg")
+  supervisedSvg = d3.select("#supervisedMap").append("svg")
     .attr("width", width)
     .attr("height", height);
 
@@ -41,76 +43,43 @@ function chart() {
   var path = d3.geoPath().projection(projection)
   var outline = ({type: "Sphere"})
 
-  svg.append("g")
+  supervisedSvg.append("g")
     .attr("class", "countries")
     .attr("width", width-100)
     .attr("height", height)
     .selectAll("path")
-    .data(topojson.feature(worldInfo, worldInfo.objects.countries).features)
+    .data(topojson.feature(supervisedWorldInfo, supervisedWorldInfo.objects.countries).features)
     .enter().append("path")
     .attr("d", path)
-
-  svg.append("g")
-    .selectAll("path")
-    .data(countries.features)
-    .join("path")
-      .attr("fill", function(d) {
-        for (var i=0; i < myData.length; i++) {
-          if (myData[i].country_iso === d.properties.name) {
-            return myColor(returnColumn(myData[i], currentMap));
-          }
-        }
-        return "#aaaaaa";
-      })
-      .attr("d", path)
-      .on("click", function(d) {
-        //alert(d.properties.name)
-      })
-
-  svg.append("path")
-    .datum(topojson.mesh(worldInfo, worldInfo.objects.countries, (a, b) => a !== b))
-    .attr("fill", "none")
-    .attr("stroke", "white")
-    .attr("stroke-linejoin", "round")
-    .attr("d", path);
-
-    var legendData = []
-    console.log(max + " " + min);
-    for (var i=0; i <= (max*10-min*10); i++) {
-      legendData.push({color: myColor(i), name: i})
-    }
-    legendData.push({color: "#aaaaaa", name: "no data"});
 }
 
-function updateData() {
+function updateSupervisedData() {
     // Get the data again
-    myData = convertCountries(data);
+    mySupervisedData = convertCountries(supervisedData);
 
-    var min = Math.floor(d3.min(myData.map(function(d) { return +returnColumn(d, currentMap); })) / 1);
-    var max = Math.ceil(d3.max(myData.map(function(d) { return +returnColumn(d, currentMap); })) / 1);
+    var min = Math.floor(d3.min(mySupervisedData.map(function(d) { return +returnSupervisedColumn(d, currentSupervisedMap); })) / 1);
+    var max = Math.ceil(d3.max(mySupervisedData.map(function(d) { return +returnSupervisedColumn(d, currentSupervisedMap); })) / 1);
 
     var myColor = d3.scaleLinear()
       .domain(d3.range(min, max))
       .range(d3.quantize(d3.interpolateHcl("#f4e153", "#362142"), 10));
 
     // Select the section we want to apply our changes to
-    countries = topojson.feature(worldInfo, worldInfo.objects.countries);
+    supervisedCountries = topojson.feature(supervisedWorldInfo, supervisedWorldInfo.objects.countries);
     // Make the changes
-    svg.selectAll("path")
-      .data(countries.features)
+    supervisedSvg.selectAll("path")
+      .data(supervisedCountries.features)
       .join("path")
         .attr("fill", function(d) {
-          for (var i=0; i < myData.length; i++) {
-            if (myData[i].country_iso === d.properties.name) {
-              return myColor(returnColumn(myData[i], currentMap));
+          for (var i=0; i < mySupervisedData.length; i++) {
+            if (mySupervisedData[i].country_iso === d.properties.name) {
+              return myColor(returnSupervisedColumn(mySupervisedData[i], currentSupervisedMap));
             }
           }
           return "#aaaaaa";
         })
-        .datum(topojson.mesh(worldInfo, worldInfo.objects.countries, (a, b) => a !== b))
-        .attr("stroke", "white")
-        .attr("stroke-linejoin", "round")
-
+        .datum(topojson.mesh(supervisedWorldInfo, supervisedWorldInfo.objects.countries, (a, b) => a !== b))
+        
         var legendData = []
         for (var i=0; i <= max-min; i++) {
           if ((max-min) === i) {
@@ -122,17 +91,17 @@ function updateData() {
         }
         legendData.push({color: "#aaaaaa", name: "no data"});
 
-        d3.select("#legend").remove();
+        d3.select("#supervisedLegend").remove();
 
-        legend = svg.append("g")
+        supervisedLegend = supervisedSvg.append("g")
           .attr("class", "legend")
-          .attr("id", "legend")
+          .attr("id", "supervisedLegend")
           .attr("x", width - 105)
           .attr("y", 75)
           .attr("height", 100)
           .attr("width", 100);
 
-        legend.selectAll('g').data(legendData)
+        supervisedLegend.selectAll('g').data(legendData)
           .enter()
           .append('g')
           .each(function(d, i) {
@@ -158,7 +127,7 @@ function updateData() {
 var width = 975;
 var height = 475;
 
-var data = [[], [], [], [], [], []];
+var supervisedData = [[], [], [], [], [], []];
 
 var maps = [
   "innovation output",
@@ -169,17 +138,17 @@ var maps = [
 var promises = [
   d3.json("./web/data/countries-50m.json"),
   d3.dsv(",", "./data_analysis/supervised/linear_regression.csv", function(d) {
-    data.push(d);
+    supervisedData.push(d);
   })
 ]
 
 Promise.all(promises).then(function(world) {
 
-  worldInfo = world[0];
+  supervisedWorldInfo = world[0];
   // example of array of iso country codes that get converted to our map safe names
-  myData = convertCountries(data);
+  mySupervisedData = convertCountries(supervisedData);
 
-  countries = topojson.feature(worldInfo, worldInfo.objects.countries);
-  chart();
-  clickIndex();
+  supervisedCountries = topojson.feature(supervisedWorldInfo, supervisedWorldInfo.objects.countries);
+  supervisedChart();
+  clickSupervisedIndex();
 });

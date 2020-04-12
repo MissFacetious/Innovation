@@ -6,7 +6,6 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./web/css/site.css">
-<link rel="stylesheet" href="./web/css/venn.css">
 </head>
 
 <body>
@@ -15,6 +14,8 @@
     <img class="center" src="./web/images/banner2.png" />
     <img class="center" src="./web/images/banner3.png" />
   </div>
+
+  <div class="container">
   <h1>Creative Innovation: Happy, Healthy, Wealthy, or Wise?</h1>
 
   <h3>Marc Boulet, Minkwon Lee, Michael Migliacio, Ricardo Stamato, Lisa Walkosz-Migliacio, Catherine Yin</h3>
@@ -40,68 +41,11 @@
 
 </div>
 
-<p>Our unsupervised <a href="unsupervised.html">analysis</a>.</p>
-<p>Our supervised <a href="supervised.html">analysis</a>.</p>
-
-<div class="main large-words">
-  <span class="box blue-box">Innovation?</span>,
-  <span class="box yellow-box">Happy</span>,
-  <span class="box red-box">Healthy</span>,
-  <span class="box green-box">Wealthy</span>, and
-  <span class="box orange-box">Wise</span>
+<div class="footer blue-box white-text">
+  <div class="left-footer"></div>
+  <div class="right-footer">on to the data <a href="data.html" class="white-text">></a></div>
 </div>
 
-<div class="grid-top">
-  <div class="main-top">
-    <div class="bulb">
-      <img class="yellow1-solid over" id="bulb1" onclick="javascript:showCountry(1);" onmouseover="javascript:showCountry(1);" src="./web/images/lightbulb/lightbulb_01.png" />
-      <img class="yellow2-solid over" id="bulb2" onclick="javascript:showCountry(2);" onmouseover="javascript:showCountry(2);" src="./web/images/lightbulb/lightbulb_02.png" />
-      <img class="yellow3-solid over" id="bulb3" onclick="javascript:showCountry(3);" onmouseover="javascript:showCountry(3);" src="./web/images/lightbulb/lightbulb_03.png" />
-      <img class="yellow4-solid over" id="bulb4" onclick="javascript:showCountry(4);" onmouseover="javascript:showCountry(4);" src="./web/images/lightbulb/lightbulb_04.png" />
-      <img class="yellow5-solid over" id="bulb5" onclick="javascript:showCountry(5);" onmouseover="javascript:showCountry(5);" src="./web/images/lightbulb/lightbulb_05.png" />
-      <img class="gray" src="./web/images/lightbulb/base.png" />
-    </div>
-  </div>
-  <div class="sidebar-top">
-    <h1>Top 5 Innovative Countries</h1>
-    <h3><span id="top5-number">#1</span> <span id="top5-title">This One</span></h3>
-    <p id="top5-summary">A Summary of the country's innovation.</h4>
-  </div>
-</div>
-
-<div class="text-box center blue-box">
-  <div class="grid-box">
-    <div class="item1"><img class="small-circle green-box" src="./web/images/piggy-bank_White.png" /></div>
-    <div class="item2 spin seventh big" id="money" onmouseover="javascript:stopMoney();" onclick="javascript:stopMoney();">00k</div>
-    <div class="item3"></div>
-    <div class="item4 spin sixth big" id="education" onmouseover="javascript:stopEducation();" onclick="javascript:stopEducation();">BS</div>
-    <div class="item5 updown">bachelor's degree</div>
-    <div class="item6">$</div>
-    <div class="item7">&amp; a</div>
-    <div class="item8"><img class="small-circle orange-box" src="./web/images/grad-cap_White.png" /></div>
-  </div>
-  <div class="line">is the inflection point of an</div>
-  <div class="line">i n n o v a t i v e &nbsp; &nbsp; s o c i e t y</div>
-</div>
-
-<div class="grid-venn">
-  <div class="sidebar-venn">
-    <h1><span id="venn-country">This One</span></h1>
-    <h3><span id="venn-title">Combined Traits</h3>
-    <p id="venn-summary">A Summary of the sample country's traits.</h4>
-  </div>
-  <div class="main-venn">
-    <div class="venn" id="venn"></div>
-  </div>
-</div>
-
-<p>Putting it all together with our <a href="map.html">interactive map</a>.</p>
-
-<script src="./web/src/lightbulb.js"></script>
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="./web/lib/venn.min.js"></script>
-<script src="./web/src/five-venn.js"></script>
-<script src="./web/src/text.js"></script>
 
 </body>
 </html>
