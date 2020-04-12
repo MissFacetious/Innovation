@@ -12,15 +12,10 @@
   <h1>Creative Innovation: Happy, Healthy, Wealthy, or Wise?</h1>
 
 <select id="valueMap" onChange="javascript:clickIndex()">
-  <option>kmeans_results_all</option>
-  <option>kmeans_results_all_creative</option>
-  <option>kmeans_results_all_non_creative</option>
-  <option>kmeans_results_curated_creative</option>
-  <option>kmeans_results_curated_non_creative</option>
-  <option>kmeans_results_curated</option>
+  <option>innovation output</option>
+  <option>prediction</option>
+  <option>innovation output - prediction</option>
 </select>
-
-<input id="valueCluster" onChange="javascript:clickIndex()" type="range" min="3" max="8" value="3" class="slider">
 
 <div id="selectValue"></div>
 
@@ -32,7 +27,7 @@
 <script type="text/javascript" src="https://d3js.org/topojson.v2.min.js"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="./web/lib/convert.js"></script>
-<script src="./web/src/analysis-map.js"></script>
+<script src="./web/src/supervised-map.js"></script>
 
 </body>
 </html>
