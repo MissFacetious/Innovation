@@ -50,6 +50,7 @@ function clickUnsupervisedIndex(valueCluster, reset) {
   if (reset) {
       filter = 'none'
   }
+  tip.hide();
   updateUnsupervisedData();
 }
 
