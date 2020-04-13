@@ -1,6 +1,16 @@
 var currentUnsupervisedCluster = 0;
 var myUnsupervisedData = [];
 
+var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .html(function(country, d) {
+        return "<p>" + country + "</p>" +
+        "<br/><span>all: </span>" + d.unsup_all_3clusters +
+        "<br/><span>econ: </span>" + d.unsup_economic_3clusters +
+        "<br/><span>creative: </span>" + d.unsup_creative_3clusters
+       })
+      .offset([-12, 0])
+
 function clickUnsupervisedIndex(valueCluster) {
   //var valueCluster = document.getElementById("unsupervisedValueCluster").value;
   currentUnsupervisedCluster = valueCluster;
@@ -46,6 +56,8 @@ function unsupervisedChart() {
     .data(topojson.feature(unsupervisedWorldInfo, unsupervisedWorldInfo.objects.countries).features)
     .enter().append("path")
     .attr("d", path)
+
+    unsupervisedSvg.call(tip)
 }
 
 function updateUnsupervisedData() {
@@ -72,6 +84,7 @@ function updateUnsupervisedData() {
     // Select the section we want to apply our changes to
     unsupervisedCountries = topojson.feature(unsupervisedWorldInfo, unsupervisedWorldInfo.objects.countries);
     // Make the changes
+    var currentCountry = '';
     unsupervisedSvg.selectAll("path")
       .data(unsupervisedCountries.features)
       .join("path")
@@ -83,7 +96,28 @@ function updateUnsupervisedData() {
           }
           return "#aaaaaa";
         })
+        // hacky hack hack because topography data doesn't want to keep country names in it
+        .attr("class", function(d) {
+          for (var i=0; i < myUnsupervisedData.length; i++) {
+            if (myUnsupervisedData[i].country_iso === d.properties.name) {
+              return d.properties.name;
+            }
+          }
+          return "";
+        })
         .datum(topojson.mesh(unsupervisedWorldInfo, unsupervisedWorldInfo.objects.countries, (a, b) => a !== b))
+        .on("mouseover", function(a) {
+          var country = this.className.baseVal;
+          for (var i=0; i < myUnsupervisedData.length; i++) {
+            if (myUnsupervisedData[i].country_iso === country) {
+              tip.show(country, myUnsupervisedData[i])
+              break;
+            }
+          }
+        })
+        .on("mouseout", function(a) {
+          tip.hide();
+        })
 
         var legendData = []
         for (var i=(max-min); i >= 0; i--) {
