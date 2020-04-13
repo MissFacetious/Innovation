@@ -167,31 +167,19 @@ a.white-text:hover {
   background: #fd8d3c;
 }
 .yellow2-solid {
-  background: #feb24c;
-}
-.yellow3-solid {
   background: #fed976;
 }
-.yellow4-solid {
-  background: #ffeda0;
-}
-.yellow5-solid {
+.yellow3-solid {
   background: #ffffcc;
 }
 .yellow1 {
   background: linear-gradient(0deg, #fd8d3c 0%, #ef3b2c 100%);
 }
 .yellow2 {
-  background: linear-gradient(0deg, #feb24c 0%, #fb6a4a 100%);
+  background: linear-gradient(0deg, #fdd433 0%, #fd8d3c 100%);
 }
 .yellow3 {
-  background: linear-gradient(0deg, #fed976 0%, #fd8d3c 100%);
-}
-.yellow4 {
-  background: linear-gradient(0deg, #ffeda0 0%, #fdae6b 100%);
-}
-.yellow5 {
-  background: linear-gradient(0deg, #ffffcc 0%, #fdd0a2 100%);
+  background: linear-gradient(0deg, #ffffaa 0%, #fdd433 100%);
 }
 .gray {
   background: #ccc;

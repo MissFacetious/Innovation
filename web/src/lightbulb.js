@@ -17,14 +17,6 @@ function showCountry(value) {
       "country": "Country Name3",
       "summary": "This is a summary for...",
     },
-    {
-      "country": "Country Name4",
-      "summary": "This is a summary for...",
-    },
-    {
-      "country": "Country Name5",
-      "summary": "This is a summary for...",
-    }
   ];
     bulbDiv.classList.remove("yellow"+value+"-solid")
     bulbDiv.classList.add("yellow"+value)
