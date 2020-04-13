@@ -11,28 +11,42 @@ function showCountry(value) {
       "country": "High Innovation Countries",
       "summary": "Famous for new technology and advancements, these countries can be seen as something to strive towards.<br/><br/>"+
         "Countries include:<br/>"+
-        "United States of America<br/>"+
-        "Sweden<br/>"+
-        "Japan<br/>"+
-        "Australia<br/>",
+        "<span class=\"country\">United States of America</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text high-blue\">high</span> economic and creative impacts</span><br/>"+
+        "<span class=\"country\">Japan</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text high-blue\">high</span> economic and creative impacts</span><br/>"+
+        "<span class=\"country\">Sweden</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text high-blue\">high</span> economic and creative impacts</span><br/>"+
+        "<span class=\"country\">China</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text high-purple\">high</span> creative but <span class=\"squared-text medium-purple\">medium</span> economic impacts</span><br/>"+
+        "<span class=\"country\">Australia</span><br/>"+
+        "<span class=\"effects\">which also has <span class=\"squared-text high-green\">high</span> economic but <span class=\"squared-text medium-purple\">medium</span> creative impacts</span>",
     },
     {
       "country": "Medium Innovation Countries",
       "summary": "Just hitting their stride, these countries can have a robust economy and creative sectors, but not potentially enough to set them apart from the best. <br/><br/>"+
         "Countries include:<br/>"+
-        "Brazil<br/>"+
-        "Russia<br/>"+
-        "Vietnam<br/>"+
-        "Mexico<br/>",
+        "<span class=\"country\">Russia</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text medium-blue\">medium</span> economic and creative impacts</span><br/>"+
+        "<span class=\"country\">Mexico</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text medium-blue\">medium</span> economic and creative impacts</span><br/>"+
+        "<span class=\"country\">Brazil</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text medium-green\">medium</span> economic but <span class=\"squared-text low-purple\">low</span> creative impacts</span><br/>"+
+        "<span class=\"country\">Vietnam</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text medium-green\">medium</span> economic but <span class=\"squared-text low-purple\">low</span> creative impacts</span><br/>",
     },
     {
       "country": "Low Innovation Countries",
       "summary": "Still working through culture and economic factors, these countries could be the next big thing with a little bit of time. <br/><br/>"+
         "Countries include:<br/>"+
-        "India<br/>"+
-        "Nigeria<br/>"+
-        "Guatemala<br/>"+
-        "Afghanistan<br/>",
+        "<span class=\"country\">Nigeria</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text low-blue\">low</span> economic and creative impacts</span><br/>"+
+        "<span class=\"country\">Afghanistan</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text low-blue\">low</span> economic and creative impacts</span><br/>"+
+        "<span class=\"country\">India</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text low-green\">low</span> economic but <span class=\"squared-text medium-purple\">medium</span> creative impacts</span><br/>"+
+        "<span class=\"country\">Guatemala</span><br/>"+
+        "<span class=\"effects\">which also have <span class=\"squared-text low-purple\">low</span> creative but <span class=\"squared-text medium-green\">medium</span> ecomonic impacts</span><br/>",
     },
   ];
     bulbDiv.classList.remove("yellow"+value+"-solid")
