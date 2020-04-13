@@ -369,6 +369,50 @@ path {
    left: 0;
  }
 
+ .country {
+   font-size: 1.5em;
+ }
+
+ .effects {
+   padding-left: 20px;
+ }
+
+ .high-blue {
+   border-color: rgb(0, 229, 239);
+ }
+
+ .medium-blue {
+   border-color: rgb(0, 163, 237);
+ }
+
+ .low-blue {
+   border-color: rgb(52, 97, 235);
+ }
+
+ .high-green {
+   border-color: rgb(0, 240, 109);
+ }
+
+ .medium-green {
+   border-color: rgb(0, 198, 128);
+ }
+
+ .low-green {
+   border-color: rgb(20, 156, 147);
+ }
+
+ .high-purple {
+   border-color: rgb(228, 64, 222);
+ }
+
+ .medium-purple {
+   border-color: rgb(166, 62, 199);
+ }
+
+ .low-purple {
+   border-color: rgb(104, 60, 176);
+ }
+
 .line {
   text-align: justify;
   line-height: 0.7em;
