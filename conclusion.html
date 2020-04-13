@@ -6,7 +6,6 @@
 
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./web/css/site.css">
-<link rel="stylesheet" href="./web/css/venn.css">
 </head>
 
 <body>
@@ -60,6 +59,17 @@
       <div class="line">i n n o v a t i v e &nbsp; &nbsp; s o c i e t y</div>
     </div>
 
+    <select id="unsupervisedValueCluster" onChange="javascript:clickUnsupervisedIndex()">
+      <option>unsup_all_3clusters</option>
+      <option>unsup_economic_3clusters</option>
+      <option>unsup_creative_3clusters</option>
+    </select>
+
+    <div id="unsupervisedSelectValue"></div>
+
+    <div id="unsupervisedMap" class="unsupervisedMap"></div>
+
+
     <div class="grid-venn">
       <div class="sidebar-venn">
         <h1><span id="venn-country">This One</span></h1>
@@ -82,8 +92,9 @@
 
 <script src="./web/src/lightbulb.js"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="./web/lib/venn.min.js"></script>
-<script src="./web/src/five-venn.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="./web/lib/convert.js"></script>
+<script src="./web/src/unsupervised-results.js"></script>
 <script src="./web/src/text.js"></script>
 
 </body>

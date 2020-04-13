@@ -1,3 +1,5 @@
+javascript:showCountry(1);
+
 function showCountry(value) {
   let numberDiv = document.getElementById("top5-number");
   let titleDiv = document.getElementById("top5-title");
@@ -9,25 +11,28 @@ function showCountry(value) {
       "country": "High Innovation Countries",
       "summary": "Famous for new technology and advancements, these countries can be seen as something to strive towards.<br/><br/>"+
         "Countries include:<br/>"+
-        "<br/>"+
-        "<br/>"+
-        "<br/>",
+        "United States of America<br/>"+
+        "Sweden<br/>"+
+        "Japan<br/>"+
+        "Australia<br/>",
     },
     {
       "country": "Medium Innovation Countries",
       "summary": "Just hitting their stride, these countries can have a robust economy and creative sectors, but not potentially enough to set them apart from the best. <br/><br/>"+
         "Countries include:<br/>"+
-        "<br/>"+
-        "<br/>"+
-        "<br/>",
+        "Brazil<br/>"+
+        "India<br/>"+
+        "Russia<br/>"+
+        "Vietnam<br/>",
     },
     {
       "country": "Low Innovation Countries",
       "summary": "Still working through culture and economic factors, these countries could be the next big thing with a little bit of time. <br/><br/>"+
         "Countries include:<br/>"+
-        "<br/>"+
-        "<br/>"+
-        "<br/>",
+        "India<br/>"+
+        "Nigeria<br/>"+
+        "Guatemala<br/>"+
+        "Afghanistan<br/>",
     },
   ];
     bulbDiv.classList.remove("yellow"+value+"-solid")
