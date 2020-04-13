@@ -143,6 +143,9 @@ a.white-text:hover {
 .orange-box {
   background: #ff8303;
 }
+.purple-box {
+  background: #8938ab;
+}
 .blue1 {
   background: #a6bddb;
 }
@@ -217,12 +220,12 @@ a.white-text:hover {
 }
 .left {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 5%;
 }
 .right {
   position: absolute;
-  top: 50%;
+  top: 40%;
   right: 5%;
 }
 .bottom {

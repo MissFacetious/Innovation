@@ -1,11 +1,14 @@
 var currentUnsupervisedCluster = 0;
 var myUnsupervisedData = [];
 
-function clickUnsupervisedIndex() {
-  var valueCluster = document.getElementById("unsupervisedValueCluster").value;
+function clickUnsupervisedIndex(valueCluster) {
+  //var valueCluster = document.getElementById("unsupervisedValueCluster").value;
   currentUnsupervisedCluster = valueCluster;
   var selectValue = document.getElementById("unsupervisedSelectValue");
-  selectValue.innerHTML = "File: " + valueCluster;
+  if (valueCluster === 'unsup_all_3clusters') valueCluster = 'Combined Innovation';
+  if (valueCluster === 'unsup_economic_3clusters') valueCluster = 'Economic Impact';
+  if (valueCluster === 'unsup_creative_3clusters') valueCluster = 'Creative Impact';
+  selectValue.innerHTML = valueCluster;
   updateUnsupervisedData();
 }
 
@@ -52,9 +55,20 @@ function updateUnsupervisedData() {
     var min = d3.min(myUnsupervisedData.map(function(d) { return +d[currentUnsupervisedCluster]; }))
     var max = d3.max(myUnsupervisedData.map(function(d) { return +d[currentUnsupervisedCluster]; }))
 
-    var myColor = d3.scaleSequential()
-      .domain([min, max])
-      .interpolator(d3.interpolateViridis);
+    var myColor = d3.scaleLinear()
+      .domain(d3.range(min, max))
+
+      if (currentUnsupervisedCluster === 'unsup_all_3clusters')
+        // blue, default
+        myColor.range(d3.quantize(d3.interpolateHcl("#3461eb", "#27cfc3"), 3));
+      else if (currentUnsupervisedCluster === 'unsup_economic_3clusters')
+        // green like money!
+        myColor.range(d3.quantize(d3.interpolateHcl("#149c93", "#77e83a"), 3));
+      else if (currentUnsupervisedCluster === 'unsup_creative_3clusters')
+        // pink purple creatives
+        myColor.range(d3.quantize(d3.interpolateHcl("#683cb0", "#e637d4"), 3));
+      else
+        myColor.range(d3.quantize(d3.interpolateHcl("#f4e153", "#ff6699"), 3));
     // Select the section we want to apply our changes to
     unsupervisedCountries = topojson.feature(unsupervisedWorldInfo, unsupervisedWorldInfo.objects.countries);
     // Make the changes
@@ -72,8 +86,12 @@ function updateUnsupervisedData() {
         .datum(topojson.mesh(unsupervisedWorldInfo, unsupervisedWorldInfo.objects.countries, (a, b) => a !== b))
 
         var legendData = []
-        for (var i=0; i <= max-min; i++) {
-          legendData.push({color: myColor(i), name: i})
+        for (var i=(max-min); i >= 0; i--) {
+          var name = '';
+          if (i <= 0) name = "Low Innovation";
+          if (i === 1) name = "Medium Innovation";
+          if (i >= 2) name = "High Innovation";
+          legendData.push({color: myColor(i), name: name})
         }
         legendData.push({color: "#aaaaaa", name: "no data"});
 
@@ -132,11 +150,9 @@ Promise.all(promises).then(function(world) {
 
   unsupervisedWorldInfo = world[0];
   // example of array of iso country codes that get converted to our map safe names
-
-  console.log(unsupervisedData);
   myUnsupervisedData = convertCountries(unsupervisedData);
 
   unsupervisedCountries = topojson.feature(unsupervisedWorldInfo, unsupervisedWorldInfo.objects.countries);
   unsupervisedChart();
-  clickUnsupervisedIndex();
+  clickUnsupervisedIndex('unsup_all_3clusters');
 });

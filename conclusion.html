@@ -59,29 +59,20 @@
       <div class="line">i n n o v a t i v e &nbsp; &nbsp; s o c i e t y</div>
     </div>
 
-    <select id="unsupervisedValueCluster" onChange="javascript:clickUnsupervisedIndex()">
-      <option>unsup_all_3clusters</option>
-      <option>unsup_economic_3clusters</option>
-      <option>unsup_creative_3clusters</option>
-    </select>
+    <h1>Innovation Groups</h2>
+    <h3 id="unsupervisedSelectValue"></h3>
 
-    <div id="unsupervisedSelectValue"></div>
-
-    <div id="unsupervisedMap" class="unsupervisedMap"></div>
-
-
-    <div class="grid-venn">
-      <div class="sidebar-venn">
-        <h1><span id="venn-country">This One</span></h1>
-        <h3><span id="venn-title">Combined Traits</h3>
-        <p id="venn-summary">A Summary of the sample country's traits.</h4>
+    <div id="unsupervisedMap" class="map">
+      <div onclick="javascript:clickUnsupervisedIndex('unsup_all_3clusters');" class="circle circle-border bottom over">
+        <img class="circle blue-box" src="./web/images/light-bulb-Gear_White.png" />
       </div>
-      <div class="main-venn">
-        <div class="venn" id="venn"></div>
+      <div onclick="javascript:clickUnsupervisedIndex('unsup_creative_3clusters');" class="circle circle-border right over">
+        <img class="circle purple-box" src="./web/images/grad-cap_White.png" />
+      </div>
+      <div onclick="javascript:clickUnsupervisedIndex('unsup_economic_3clusters');" class="circle circle-border left over">
+        <img class="circle green-box" src="./web/images/piggy-bank_White.png" />
       </div>
     </div>
-
-    <p>Putting it all together with our <a href="map.html">interactive map</a>.</p>
 
   </div>
 
