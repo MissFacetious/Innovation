@@ -21,9 +21,9 @@ function showCountry(value) {
       "summary": "Just hitting their stride, these countries can have a robust economy and creative sectors, but not potentially enough to set them apart from the best. <br/><br/>"+
         "Countries include:<br/>"+
         "Brazil<br/>"+
-        "India<br/>"+
         "Russia<br/>"+
-        "Vietnam<br/>",
+        "Vietnam<br/>"+
+        "Mexico<br/>",
     },
     {
       "country": "Low Innovation Countries",

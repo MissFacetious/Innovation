@@ -1,17 +1,45 @@
 var currentUnsupervisedCluster = 0;
 var myUnsupervisedData = [];
+var filter = 'none';
 
 var tip = d3.tip()
       .attr('class', 'd3-tip')
       .html(function(country, d) {
-        return "<p>" + country + "</p>" +
-        "<br/><span>all: </span>" + d.unsup_all_3clusters +
-        "<br/><span>econ: </span>" + d.unsup_economic_3clusters +
-        "<br/><span>creative: </span>" + d.unsup_creative_3clusters
+        var all = convertInnovationNumberToText(d.unsup_all_3clusters);
+        var econ = convertInnovationNumberToText(d.unsup_economic_3clusters);
+        var create = convertInnovationNumberToText(d.unsup_creative_3clusters);
+        return "<div>" + country + "</div>" +
+        "<br/><span class=\"blue-text\">Combined Innovation: </span><a class=\"tip\" href=\"javascript:filterChange('unsup_all_3clusters', '"+d.unsup_all_3clusters+"')\">" + all + "</a>" +
+        "<br/><span class=\"green-text\">Economic Impact: </span><a class=\"tip\" href=\"javascript:filterChange('unsup_economic_3clusters', '"+d.unsup_economic_3clusters+"')\">" + econ + "</a>" +
+        "<br/><span class=\"purple-text\">Creative Impact: </span><a class=\"tip\" href=\"javascript:filterChange('unsup_creative_3clusters', '"+d.unsup_creative_3clusters+"')\">" + create + "</a>"
        })
       .offset([-12, 0])
 
-function clickUnsupervisedIndex(valueCluster) {
+function clickCountryToolTip(country) {
+  for (var i=0; i < myUnsupervisedData.length; i++) {
+    if (myUnsupervisedData[i].country_iso === country) {
+      tip.show(country, myUnsupervisedData[i])
+      break;
+    }
+  }
+}
+
+function convertInnovationNumberToText(number) {
+  var name = ''
+  if (+number <= 0) name = "Low Innovation";
+  if (+number === 1) name = "Medium Innovation";
+  if (+number >= 2) name = "High Innovation";
+  return name;
+}
+
+function filterChange(type, number) {
+  clickUnsupervisedIndex(type, false);
+  filter = +number;
+  clickUnsupervisedIndex(currentUnsupervisedCluster);
+  tip.hide();
+}
+
+function clickUnsupervisedIndex(valueCluster, reset) {
   //var valueCluster = document.getElementById("unsupervisedValueCluster").value;
   currentUnsupervisedCluster = valueCluster;
   var selectValue = document.getElementById("unsupervisedSelectValue");
@@ -19,6 +47,9 @@ function clickUnsupervisedIndex(valueCluster) {
   if (valueCluster === 'unsup_economic_3clusters') valueCluster = 'Economic Impact';
   if (valueCluster === 'unsup_creative_3clusters') valueCluster = 'Creative Impact';
   selectValue.innerHTML = valueCluster;
+  if (reset) {
+      filter = 'none'
+  }
   updateUnsupervisedData();
 }
 
@@ -89,12 +120,53 @@ function updateUnsupervisedData() {
       .data(unsupervisedCountries.features)
       .join("path")
         .attr("fill", function(d) {
-          for (var i=0; i < myUnsupervisedData.length; i++) {
-            if (myUnsupervisedData[i].country_iso === d.properties.name) {
-              return myColor(myUnsupervisedData[i][currentUnsupervisedCluster]);
+          if (filter === 'none') {
+            for (var i=0; i < myUnsupervisedData.length; i++) {
+              if (myUnsupervisedData[i].country_iso === d.properties.name) {
+                return myColor(myUnsupervisedData[i][currentUnsupervisedCluster]);
+              }
             }
+            return "#aaaaaa";
           }
-          return "#aaaaaa";
+          if (filter === 0) {
+            for (var i=0; i < myUnsupervisedData.length; i++) {
+              if (myUnsupervisedData[i].country_iso === d.properties.name) {
+                if (+myUnsupervisedData[i][currentUnsupervisedCluster] === 0) {
+                  return myColor(myUnsupervisedData[i][currentUnsupervisedCluster]);
+                }
+                else {
+                  return "#dddddd";
+                }
+              }
+            }
+            return "#aaaaaa";
+          }
+          if (filter === 1) {
+            for (var i=0; i < myUnsupervisedData.length; i++) {
+              if (myUnsupervisedData[i].country_iso === d.properties.name) {
+                if (+myUnsupervisedData[i][currentUnsupervisedCluster] === 1) {
+                  return myColor(myUnsupervisedData[i][currentUnsupervisedCluster]);
+                }
+                else {
+                  return "#dddddd";
+                }
+              }
+            }
+            return "#aaaaaa";
+          }
+          if (filter === 2) {
+            for (var i=0; i < myUnsupervisedData.length; i++) {
+              if (myUnsupervisedData[i].country_iso === d.properties.name) {
+                if (+myUnsupervisedData[i][currentUnsupervisedCluster] === 2) {
+                  return myColor(myUnsupervisedData[i][currentUnsupervisedCluster]);
+                }
+                else {
+                  return "#dddddd";
+                }
+              }
+            }
+            return "#aaaaaa";
+          }
         })
         // hacky hack hack because topography data doesn't want to keep country names in it
         .attr("class", function(d) {
@@ -106,26 +178,32 @@ function updateUnsupervisedData() {
           return "";
         })
         .datum(topojson.mesh(unsupervisedWorldInfo, unsupervisedWorldInfo.objects.countries, (a, b) => a !== b))
-        .on("mouseover", function(a) {
-          var country = this.className.baseVal;
-          for (var i=0; i < myUnsupervisedData.length; i++) {
-            if (myUnsupervisedData[i].country_iso === country) {
-              tip.show(country, myUnsupervisedData[i])
-              break;
-            }
-          }
-        })
-        .on("mouseout", function(a) {
+        .on("click", function(a) {
           tip.hide();
+          clickCountryToolTip(this.className.baseVal);
         })
+        //.on("mouseout", function(a) {
+        //  tip.hide();
+        //})
 
         var legendData = []
-        for (var i=(max-min); i >= 0; i--) {
-          var name = '';
-          if (i <= 0) name = "Low Innovation";
-          if (i === 1) name = "Medium Innovation";
-          if (i >= 2) name = "High Innovation";
-          legendData.push({color: myColor(i), name: name})
+        if (filter === 'none') {
+          for (var i=(max-min); i >= 0; i--) {
+            var name = convertInnovationNumberToText(i);
+            legendData.push({color: myColor(i), name: name})
+          }
+        }
+        else if (+filter === 0) { // low
+          var name = convertInnovationNumberToText(0);
+          legendData.push({color: myColor(max-min-2), name: name})
+        }
+        else if (+filter === 1) { // med
+          var name = convertInnovationNumberToText(1);
+          legendData.push({color: myColor(max-min-1), name: name})
+        }
+        else if (+filter === 2) { // hi
+          var name = convertInnovationNumberToText(2);
+          legendData.push({color: myColor(max-min), name: name})
         }
         legendData.push({color: "#aaaaaa", name: "no data"});
 
@@ -188,5 +266,5 @@ Promise.all(promises).then(function(world) {
 
   unsupervisedCountries = topojson.feature(unsupervisedWorldInfo, unsupervisedWorldInfo.objects.countries);
   unsupervisedChart();
-  clickUnsupervisedIndex('unsup_all_3clusters');
+  clickUnsupervisedIndex('unsup_all_3clusters', false);
 });
