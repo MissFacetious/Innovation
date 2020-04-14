@@ -229,6 +229,12 @@ function updateUnsupervisedData() {
               .attr("width", 10)
               .attr("height", 10)
               .style("fill", d.color)
+              .on("click", function(a) {
+                if (d.name === "Low Innovation") value = 0;
+                if (d.name === "Medium Innovation") value = 1;
+                if (d.name === "High Innovation") value = 2;
+                filterChange(currentUnsupervisedCluster, value)
+              })
 
             g.append("text")
               .attr("x", width - margin.right - 35)

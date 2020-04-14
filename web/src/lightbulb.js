@@ -46,7 +46,7 @@ function showCountry(value) {
         "<span class=\"country\">India</span><br/>"+
         "<span class=\"effects\">which also have <span class=\"squared-text low-green\">low</span> economic but <span class=\"squared-text medium-purple\">medium</span> creative impacts</span><br/>"+
         "<span class=\"country\">Guatemala</span><br/>"+
-        "<span class=\"effects\">which also have <span class=\"squared-text low-purple\">low</span> creative but <span class=\"squared-text medium-green\">medium</span> ecomonic impacts</span><br/>",
+        "<span class=\"effects\">which also have <span class=\"squared-text low-purple\">low</span> creative but <span class=\"squared-text medium-green\">medium</span> economics impacts</span><br/>",
     },
   ];
     bulbDiv.classList.remove("yellow"+value+"-solid")
