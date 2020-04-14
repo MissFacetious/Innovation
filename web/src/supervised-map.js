@@ -3,11 +3,13 @@ var mySupervisedData = [];
 
 function clickSupervisedIndex() {
   var valueMap = document.getElementById("supervisedValueMap").value;
-  var selectValue = document.getElementById("supervisedSelectValue");
-  selectValue.innerHTML = "File: " + valueMap;
+  //var selectValue = document.getElementById("supervisedSelectValue");
+  //selectValue.innerHTML = "File: " + valueMap;
   if (valueMap === 'innovation output') valueMap = 0;
-  if (valueMap === 'prediction') valueMap = 1;
-  if (valueMap === 'innovation output - prediction') valueMap = 2;
+  if (valueMap === 'rfe_prediction') valueMap = 1;
+  if (valueMap === 'innovation output - rfe prediction') valueMap = 2;
+  if (valueMap === 'lasso_prediction') valueMap = 3;
+  if (valueMap === 'innovation output - lasso prediction') valueMap = 4;
   currentSupervisedMap = valueMap;
   updateSupervisedData();
 }
@@ -23,11 +25,15 @@ var supervisedLegend;
 
 function returnSupervisedColumn(d, value) {
   if (value === 2) {
-    return +Math.floor(Math.abs(d['gii_innovation_output'] - d['prediction']) /5);
+    return +Math.floor(Math.abs(+d['gii_innovation_output'] - +d['rfe_prediction']) / 5);
+  }
+  if (value === 4) {
+    return +(Math.abs(+d['gii_innovation_output'] - +d['lasso_prediction']) *0.2);
   }
   if (value === 0) value = 'gii_innovation_output';
-  if (value === 1) value = 'prediction';
-  return Math.floor(d[value]/5);
+  if (value === 1) value = 'rfe_prediction';
+  if (value === 3) value = 'lasso_prediction';
+  return Math.floor(+d[value]/5);
 }
 
 function supervisedChart() {
@@ -79,7 +85,7 @@ function updateSupervisedData() {
           return "#aaaaaa";
         })
         .datum(topojson.mesh(supervisedWorldInfo, supervisedWorldInfo.objects.countries, (a, b) => a !== b))
-        
+
         var legendData = []
         for (var i=0; i <= max-min; i++) {
           if ((max-min) === i) {
@@ -137,7 +143,7 @@ var maps = [
 
 var promises = [
   d3.json("./web/data/countries-50m.json"),
-  d3.dsv(",", "./data_analysis/supervised/linear_regression.csv", function(d) {
+  d3.dsv(",", "./data_analysis/supervised/lr_predictions.csv", function(d) {
     supervisedData.push(d);
   })
 ]

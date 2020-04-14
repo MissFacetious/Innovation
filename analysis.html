@@ -52,13 +52,15 @@
 
     <div class="quote">Supervised Results</div>
 
+    <h3>linear regression results</h3>
+    <p></p>
     <select id="supervisedValueMap" onChange="javascript:clickSupervisedIndex()">
       <option>innovation output</option>
-      <option>prediction</option>
-      <option>innovation output - prediction</option>
+      <option>rfe_prediction</option>
+      <option>innovation output - rfe prediction</option>
+      <option>lasso_prediction</option>
+      <option>innovation output - lasso prediction</option>
     </select>
-
-    <div id="supervisedSelectValue"></div>
 
     <div id="supervisedMap" class="supervisedMap"></div>
 
