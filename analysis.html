@@ -55,11 +55,11 @@
     <h3>linear regression results</h3>
     <p></p>
     <select id="supervisedValueMap" onChange="javascript:clickSupervisedIndex()">
-      <option>innovation output</option>
-      <option>rfe_prediction</option>
-      <option>innovation output - rfe prediction</option>
-      <option>lasso_prediction</option>
-      <option>innovation output - lasso prediction</option>
+      <option value="0">original innovation index</option>
+      <option value="1">our rfe_prediction</option>
+      <option value="2">difference between innovation index and rfe prediction</option>
+      <option value="3">our lasso_prediction</option>
+      <option value="4">difference between innovation index and lasso prediction</option>
     </select>
 
     <div id="supervisedMap" class="supervisedMap"></div>

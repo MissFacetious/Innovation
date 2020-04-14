@@ -3,14 +3,7 @@ var mySupervisedData = [];
 
 function clickSupervisedIndex() {
   var valueMap = document.getElementById("supervisedValueMap").value;
-  //var selectValue = document.getElementById("supervisedSelectValue");
-  //selectValue.innerHTML = "File: " + valueMap;
-  if (valueMap === 'innovation output') valueMap = 0;
-  if (valueMap === 'rfe_prediction') valueMap = 1;
-  if (valueMap === 'innovation output - rfe prediction') valueMap = 2;
-  if (valueMap === 'lasso_prediction') valueMap = 3;
-  if (valueMap === 'innovation output - lasso prediction') valueMap = 4;
-  currentSupervisedMap = valueMap;
+  currentSupervisedMap = +valueMap;
   updateSupervisedData();
 }
 
