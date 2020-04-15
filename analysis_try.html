@@ -13,58 +13,65 @@
   <div class="navigation-bar" id="navbar">
     <img src="./logo.png">
     <a class="btn" href="./index.html">Home</a> <!-- <a href="data.html" class="white-text">  -->
-    <a class="btn active" href="./data.html">Data</a>
-    <a class="btn" href="./analysis_try.html">Analysis</a>
-    <a class="btn" href="./conclusion.html">Conclusion</a>
+    <a class="btn" href="./data.html">Data</a>
+    <a class="btn active" href="./analysis.html">Analysis</a>
+    <a class="btn" href="#conclusion">Conclusion</a>
     <a class="btn" href="#about">About Team 67</a>
   </div>
 
   <!-- Text -->
-  <h1 style="padding-left: .5em;">Creative Innovation: Data</h1>
-  <div class="data-container">
-    <div class="left-container">
-      
-      <!-- Text1 (green) -->
-      <div class="squared green">
-        <span class="text-bold spaced">How do we determine innovation?</span>
-        <div class="content">
-          <br>Since innovation is an <span class="text-bold text-green">intangible concept</span>, there currently isn't a true indicator or metric
-          for innovation. As such, we will use an unsupervised model where nations with similar levels of innovation
-          will be <span class="text-bold text-green">clustered</span> together.<br><br>Additionally, we will be able to use the <span class="text-bold text-green">Global Innovation Index</span>
-          as a benchmark for our supervised learning approach, and compare the results of our two models.
-        </div>
-      </div>
-      
-      <!-- Text2 (blue) -->
+  <div class="analysis-container">
+    <h1>Creative Innovation: Models and Analysis</h1>
+    <h3 class="text-normal">
+      Due to the number and diverse amount of data being analyzed for this effort, our method requires several different approaches. These analyses 
+      can be found in our <a href="https://github.gatech.edu/lwalkosz3/Innovation/tree/master/data_analysis">Data Analysis</a> folder.
+    </h3>
+    <div class="content gray-fill">
+      <p>Create an <span class="green squared-text text-bold">adjacency matrix</span> containing the nations of the world.</p>
+      <p>An <span class="yellow squared-text text-bold"><a href="#unsupervised-section">unsupervised</a></span> model, in which nations with similar levels of innovation will be grouped together.</p>
+      <p>A <span class="blue squared-text text-bold"><a href="#supervised-section">supervised</a></span> learning approach predictors for innovation.</p>
+    </div>
+    <h3 class="text-normal">
+      The results of our supervised and unsupervised models are visualized below.
+    </h3>
+
+    <!-- Model section -->
+    <div class="model-container" id="unsupervised-section">
       <div class="squared blue">
-        <span class="text-bold spaced">What are potential predictors of innovation?</span>
+        <span class="text-bold spaced">Unsupervised Model</span>
         <div class="content">
-          <br>We intended to analyze a variety of measures (including <span class="text-bold text-blue">creative and economic factors</span>) 
-          to determine which of these are potentially significant predictors of what makes a nation innovative.
+          <select id="unsupervisedValueMap" onChange="javascript:clickUnsupervisedIndex()">
+            <option>kmeans_results_all</option>
+            <option>kmeans_results_all_creative</option>
+            <option>kmeans_results_all_non_creative</option>
+            <option>kmeans_results_curated_creative</option>
+            <option>kmeans_results_curated_non_creative</option>
+            <option>kmeans_results_curated</option>
+          </select>
+
+          <input id="unsupervisedValueCluster" onChange="javascript:clickUnsupervisedIndex()" type="range" min="3" max="8" value="3" class="slider">
+
         </div>
       </div>
+      <div class="squared blue">
+        <span class="text-bold spaced">INSERT GRAPH HERE</span>
+        <div id="unsupervisedSelectValue"></div>
+        <div id="unsupervisedMap" class="unsupervisedMap"></div>
+      </div>				
     </div>
     
-    <!-- Text3 (yellow) -->
-    <div class="right-container squared yellow">
-      <span class="text-bold spaced">What data was used in our analysis?</span>
-      <div class="content">
-        <br>We obtained and integrated <span class="text-bold text-yellow">40 datasets from various sources</span> such as the World Bank, 
-        the Global Innovation Index site, and UNESCO. Some <a href="https://github.gatech.edu/lwalkosz3/Innovation/tree/master/data">datasets</a> 
-        that we looked at include:
-          <ul>
-            <li>books published per country per year</li>
-            <li>scientific publications</li>
-            <li>GDP</li>
-          </ul> 
-        Our datasets also contained time series <span class="text-bold text-yellow">data ranging from 1950 to 2020</span> for a 
-        <span class="text-bold text-yellow">variety of countries</span>.
-        <br><br>Many countries also had <span class="text-bold text-yellow">sparse data</span>, which presented an additional challenge 
-        during the pre-processing phases. After normalizing and creating an <a href="https://github.gatech.edu/lwalkosz3/Innovation/tree/master/data_integration">integrated dataset</a>, 
-        we proceeded with our analysis. 
-      </div>
+    <div class="model-container" id="supervised-section">
+      lol supervised model
+      <br><br><br><br><br><br><br><br><br>
     </div>
   </div>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="./web/lib/convert.js"></script>
+<script src="./web/src/unsupervised-map.js"></script>
+<script src="./web/src/supervised-map.js"></script>
+
 
 </body>
 </html>
