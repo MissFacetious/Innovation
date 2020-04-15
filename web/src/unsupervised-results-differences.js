@@ -65,15 +65,15 @@ function returnSupervisedColumn(d, value, negative) {
   if (negative) {
     if (value === 0) {
       value = +d['unsup_all_3clusters'] - +d['unsup_economic_3clusters'];
-      if (value > 0) value = value + " above in";
-      else if (value < 0) value = Math.abs(value) + " below in";
+      if (value > 0) value = "above in";
+      else if (value < 0) value = "below in";
       else value = "same"
       return value;
     }
     if (value === 1) {
       value = +d['unsup_all_3clusters'] - +d['unsup_creative_3clusters'];
-      if (value > 0) value = value + " above in";
-      else if (value < 0) value = Math.abs(value) + " below in";
+      if (value > 0) value = "above in";
+      else if (value < 0) value = "below in";
       else value = "same"
       return value;
     }
@@ -82,11 +82,11 @@ function returnSupervisedColumn(d, value, negative) {
       var b = +d['unsup_creative_3clusters'];
       var value1 = +d['unsup_all_3clusters'] - a;
       var value2 = +d['unsup_all_3clusters'] - b;
-      if (+value1 > 0) value1 = value1 + " above in";
-      else if (+value1 < 0) value1 = Math.abs(+value1) + " below in";
+      if (+value1 > 0) value1 = "above in";
+      else if (+value1 < 0) value1 = "below in";
       else value1 = "same"
-      if (+value2 > 0) value2 = value2 + " above in";
-      else if (+value2 < 0) value2 = Math.abs(+value2) + " below in";
+      if (+value2 > 0) value2 = "above in";
+      else if (+value2 < 0) value2 = "below in";
       else value2 = "same"
       return [value1, value2];
     }
@@ -103,7 +103,9 @@ function returnSupervisedColumn(d, value, negative) {
       var b = +d['unsup_creative_3clusters'];
       var value = (a+b)/2;
       value = value - d['unsup_all_3clusters'];
-      return +Math.ceil(Math.abs(value));
+      if (value > 0) return +Math.ceil(value)+1;
+      if (value < 0) return +Math.floor(value)+1;
+      return value+1;
     }
   }
 }
@@ -153,9 +155,10 @@ function updateUnsupervisedDiffData() {
       else if (+currentUnsupervisedDiffCluster === 1)
         // pink purple creatives
         myColor.range(["#683cb066", "#e637d4"]);
-      else if (+currentUnsupervisedDiffCluster === 2)
+      else if (+currentUnsupervisedDiffCluster === 2) {
         // blue, default
-        myColor.range(["#2e98d733", "#3461eb"]);
+        myColor.range(["#3461eb", "#2e98d733", "#2aeef5"]);
+      }
 
     // Select the section we want to apply our changes to
     unsupervisedDiffCountries = topojson.feature(unsupervisedDiffWorldInfo, unsupervisedDiffWorldInfo.objects.countries);
@@ -189,9 +192,16 @@ function updateUnsupervisedDiffData() {
 
         var legendData = []
 
-        for (var i=(max-min); i >= 0; i--) {
-          var name = i === 0? "Same": "Different";
-          legendData.push({color: myColor(i), name: name})
+        if (currentUnsupervisedDiffCluster === 2) {
+          legendData.push({color: myColor(0), name: "Above"})
+          legendData.push({color: myColor(1), name: "Same"})
+          legendData.push({color: myColor(2), name: "Below"})
+        }
+        else {
+          for (var i=(max-min); i >= 0; i--) {
+            var name = i === 0? "Same": "Different";
+            legendData.push({color: myColor(i), name: name})
+          }
         }
         legendData.push({color: "#aaaaaa", name: "no data"});
 
