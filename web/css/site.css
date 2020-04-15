@@ -96,6 +96,24 @@ h3 {
     padding-right: 1em;
 }
 
+/* ANALYSIS PAGE */
+.analysis-container {
+    padding-left: 1em;
+    padding-right: 1em
+}
+
+.model-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+        grid-template-rows: auto auto;
+        column-gap: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+}
+.model-container > div:nth-child(2) {
+    grid-column: span 2;
+}
+
 .container {
   margin: 10px;
 }
@@ -191,6 +209,9 @@ a.white-text:hover {
     font-size: 1em;
     font-weight: 800;
 }
+.text-normal {
+    font-weight: normal;
+}
 .text-blue {
     color: #689bd0;
 }
@@ -199,6 +220,15 @@ a.white-text:hover {
 }
 .text-yellow {
     color: #f6c143;
+}
+/* ANALYSIS PAGE */
+.gray-fill {
+    font-size: 1.3em;
+    margin: auto;
+    max-width: 1000px;
+    padding: .25em;
+    background-color: rgb(240, 240, 240);
+    text-align: center;
 }
 /* END OF ADDED CLASSES */
 
