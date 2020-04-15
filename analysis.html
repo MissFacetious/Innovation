@@ -9,66 +9,61 @@
 </head>
 
 <body>
-  <div class="grid-banner">
-    <img class="center" src="./web/images/banner1.png" />
-    <img class="center" src="./web/images/banner2.png" />
-    <img class="center" src="./web/images/banner3.png" />
+  <!-- Navigation Bar -->
+  <div class="navigation-bar" id="navbar">
+    <img src="./logo.png">
+    <a class="btn" href="./index.html">Home</a> <!-- <a href="data.html" class="white-text">  -->
+    <a class="btn" href="./data.html">Data</a>
+    <a class="btn active" href="./analysis.html">Analysis</a>
+    <a class="btn" href="#conclusion">Conclusion</a>
+    <a class="btn" href="#about">About Team 67</a>
   </div>
 
-  <div class="container">
-    <h1>Creative Innovation: Happy, Healthy, Wealthy, or Wise?</h1>
-
-    <h3>Marc Boulet, Minkwon Lee, Michael Migliacio, Ricardo Stamato, Lisa Walkosz-Migliacio, Catherine Yin</h3>
-
-    <div class="quote">
-
-      <p>Due to the number and diverse amount of data being analyzed for this effort, our method requires several different approaches.</p>
-
-      <p>Create an <span class="green squared-text">adjacency matrix</span> containing the nations of the world.</p>
-      <p>A <span class="blue squared-text">supervised</span> learning approach predictors for innovation.</p>
-      <p>An <span class="yellow squared-text">unsupervised</span> model, in which nations with similar levels of innovation will be grouped together.</p>
+  <!-- Text -->
+  <div class="analysis-container">
+    <h1>Creative Innovation: Models and Analysis</h1>
+    <h3 class="text-normal">
+      Due to the number and diverse amount of data being analyzed for this effort, our method requires several different approaches. These analyses 
+      can be found in our <a href="https://github.gatech.edu/lwalkosz3/Innovation/tree/master/data_analysis">Data Analysis</a> folder.
+    </h3>
+    <div class="content gray-fill">
+      <p>Create an <span class="green squared-text text-bold">adjacency matrix</span> containing the nations of the world.</p>
+      <p>An <span class="yellow squared-text text-bold"><a href="#unsupervised-section">unsupervised</a></span> model, in which nations with similar levels of innovation will be grouped together.</p>
+      <p>A <span class="blue squared-text text-bold"><a href="#supervised-section">supervised</a></span> learning approach predictors for innovation.</p>
     </div>
+    <h3 class="text-normal">
+      The results of our supervised and unsupervised models are visualized below.
+    </h3>
 
-    <div class="question">You can find that in our <a href="https://github.gatech.edu/lwalkosz3/Innovation/tree/master/data_analysis">Data Analysis</a>.</div>
+    <!-- Model section -->
+    <div class="model-container" id="unsupervised-section">
+      <div class="squared blue">
+        <span class="text-bold spaced">Unsupervised Model</span>
+        <div class="content">
+          <select id="unsupervisedValueMap" onChange="javascript:clickUnsupervisedIndex()">
+            <option>kmeans_results_all</option>
+            <option>kmeans_results_all_creative</option>
+            <option>kmeans_results_all_non_creative</option>
+            <option>kmeans_results_curated_creative</option>
+            <option>kmeans_results_curated_non_creative</option>
+            <option>kmeans_results_curated</option>
+          </select>
 
-    <div class="quote">We plotted the values of our data analysis onto the map to show a visual representation of the data in order to see patterns.</div>
+          <input id="unsupervisedValueCluster" onChange="javascript:clickUnsupervisedIndex()" type="range" min="3" max="8" value="3" class="slider">
 
-    <div class="quote">Unsupervised Results</div>
-
-    <select id="unsupervisedValueMap" onChange="javascript:clickUnsupervisedIndex()">
-      <option>kmeans_results_all</option>
-      <option>kmeans_results_all_creative</option>
-      <option>kmeans_results_all_non_creative</option>
-      <option>kmeans_results_curated_creative</option>
-      <option>kmeans_results_curated_non_creative</option>
-      <option>kmeans_results_curated</option>
-    </select>
-
-    <input id="unsupervisedValueCluster" onChange="javascript:clickUnsupervisedIndex()" type="range" min="3" max="8" value="3" class="slider">
-
-    <div id="unsupervisedSelectValue"></div>
-
-    <div id="unsupervisedMap" class="unsupervisedMap"></div>
-
-    <div class="quote">Supervised Results</div>
-
-    <h3>linear regression results</h3>
-    <p></p>
-    <select id="supervisedValueMap" onChange="javascript:clickSupervisedIndex()">
-      <option value="0">original innovation index</option>
-      <option value="1">our rfe_prediction</option>
-      <option value="2">difference between innovation index and rfe prediction</option>
-      <option value="3">our lasso_prediction</option>
-      <option value="4">difference between innovation index and lasso prediction</option>
-    </select>
-
-    <div id="supervisedMap" class="supervisedMap"></div>
-
-  </div>
-
-  <div class="footer blue-box white-text">
-    <div class="left-footer"><a href="data.html" class="white-text"><</a> back to the data</div>
-    <div class="right-footer">on to the conclusion <a href="conclusion.html" class="white-text">></a></div>
+        </div>
+      </div>
+      <div class="squared blue">
+        <span class="text-bold spaced">INSERT GRAPH HERE</span>
+        <div id="unsupervisedSelectValue"></div>
+        <div id="unsupervisedMap" class="unsupervisedMap"></div>
+      </div>				
+    </div>
+    
+    <div class="model-container" id="supervised-section">
+      lol supervised model
+      <br><br><br><br><br><br><br><br><br>
+    </div>
   </div>
 
 <script src="https://d3js.org/d3.v5.min.js"></script>
