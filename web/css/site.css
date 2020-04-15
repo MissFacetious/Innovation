@@ -51,6 +51,7 @@ h3 {
     grid-template-rows: auto auto;
     column-gap: 1em;
     padding-left: 1em;
+    padding-right: 1em;
 }
 
 .home-container > div:first-child {
