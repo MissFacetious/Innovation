@@ -77,6 +77,17 @@
       </div>
     </div>
 
+    <h3>Differences from Combined Innovation to Economic and Creative</h3>
+    <h3 id="unsupervisedSelectDataValue"></h3>
+    <select id="unsupervisedValueDiffMap" onChange="javascript:clickUnsupervisedDiffIndex()">
+      <option value="0">difference between combined and economic</option>
+      <option value="1">difference between combined and creative</option>
+      <option value="2">difference between combined with both economic and creative</option>
+    </select>
+    <div id="unsupervisedDiffMap" class="map">
+
+    </div>
+
   </div>
 
   <div class="footer blue-box white-text">
@@ -90,6 +101,7 @@
 <script type="text/javascript" src="./web/lib/d3-tip.min.js"></script>
 <script src="./web/lib/convert.js"></script>
 <script src="./web/src/unsupervised-results.js"></script>
+<script src="./web/src/unsupervised-results-differences.js"></script>
 <script src="./web/src/text.js"></script>
 
 </body>
