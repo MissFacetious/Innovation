@@ -107,8 +107,6 @@ h3 {
         grid-template-columns: repeat(auto-fit, minmax(200px, 290px));
         grid-template-rows: auto auto;
         column-gap: 1em;
-        padding-left: 1em;
-        padding-right: 1em;
 }
 .model-container > div:nth-child(2) {
     grid-column: span 3;
