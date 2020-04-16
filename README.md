@@ -3,10 +3,9 @@
 
 # CREATIVE INNOVATION: HAPPY, HEALTHY, WEALTHY, OR WISE?
 
-DVA Spring 2020 Project
-https://github.gatech.edu/pages/lwalkosz3/Innovation/
-
 ## 1.0 PROJECT DESCRIPTION
+
+*DVA Spring 2020 Project*
 
 This project explores the factors that may play a role in determining the innovation level for a nation, specifically between economic and creative factors. We leveraged both supervised and unsupervised models to determine potential factors for innovation, and incorporated our analyses and conclusions in a GitHub-hosted website. The website also contains interactive visualizations that allow users to independently explore the results of our models and compare the differences between each model. This website can be found here: https://github.gatech.edu/pages/lwalkosz3/Innovation/
 
