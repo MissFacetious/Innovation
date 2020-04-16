@@ -18,7 +18,7 @@ function clickUnsupervisedIndex() {
   updateUnsupervisedData();
 }
 
-var margin = {top: 100, right: 50, bottom: 50, left: 50}
+var margin = {top: 5, right: 5, bottom: 5, left: 5}
   , width = 700 - margin.left - margin.right // Use the window's width
   , height = 550 - margin.top - margin.bottom; // Use the window's height
 
@@ -102,7 +102,7 @@ function updateUnsupervisedData() {
           .each(function(d, i) {
             var g = d3.select(this);
             g.append("rect")
-              .attr("x", width - margin.right - 50)
+              .attr("x", width - margin.right - 5)
               .attr("y", i*15)
               .attr("width", 10)
               .attr("height", 10)
@@ -119,8 +119,8 @@ function updateUnsupervisedData() {
             });
 }
 
-var width = 975;
-var height = 475;
+var width = 800;
+var height = 390;
 
 var unsupervisedData = [[], [], [], [], [], []];
 
