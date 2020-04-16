@@ -32,7 +32,8 @@
       <p>A <span class="blue squared-text text-bold"><a href="#supervised-section">supervised</a></span> learning approach predictors for innovation.</p>
     </div>
     <h3 class="text-normal">
-      The results of our supervised and unsupervised models are visualized below.
+      The results of our supervised and unsupervised models are visualized below. Users can use the dropdowns below to compare 
+      the results within each model type, as well as compare results between the supervised and unsupervised models.
     </h3>
 
     <!-- Model section -->
@@ -66,10 +67,24 @@
       </div>
     </div>
     <div id="unsupervisedMap" class="unsupervisedMap"></div>
+    <br><br>
     
-    <div class="squared blue">
-      <span class="text-bold spaced">Supervised Model</span>
+    <div id="supervised-section" class="squared blue">
+      <span class="text-bold spaced">Supervised Model: Regressions</span>
       <br><br>
+      <div class="content">
+        Regressions that incorporated feature selection were used for the supervised models, which was our attempt to assign 
+        an innovation score for each country. Predictor variables consisted of both creative and non-creative (economic) 
+        factors, while the global innovation index was used as a proxy for an innovation response variable ("original innovation index").<br><br>
+        Since the integrated dataset included dozens of columns, feature selection was a key component in our models. 
+        We explored a variety of models but ultimately decided to visualize the results from the:
+          <ul>
+            <li>recursive feature elimination with cross-validation (RFECV) linear regression model ("rfe prediction")</li>
+            <li>lasso linear regression model ("lasso prediction")</li>
+          </ul>
+        The dropdown can be used to toggle between the different innovation scores that were both modeled by the regression models and provided
+        by the global innovation index.<br><br>
+      </div>
       <div class="content">
         Select Analysis Output<br>
         <select id="supervisedValueMap" onChange="javascript:clickSupervisedIndex()">
