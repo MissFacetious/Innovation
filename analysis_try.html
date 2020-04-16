@@ -36,11 +36,19 @@
     </h3>
 
     <!-- Model section -->
-    <div class="squared yello">
-      <span class="text-bold spaced">Unsupervised Model</span>
+    <div id="unsupervised-section" class="squared yellow">
+      <span class="text-bold spaced">Unsupervised Model: K-means Clustering</span>
       <br><br>
+      <div class="content">
+        K-means clustering was used for the unsupervised model. We hypothesized that innovation is influenced by both creative 
+        and non-creative (economic) factors. However, to determine which combination of factor types (creative only, non-creative 
+        only, or both) was the best set of inputs for innovation, we ran separate clustering models for each of these three 
+        conditions, allowing the user to compare between each set of factors. <br><br>
+        The dropdown can be used to toggle between the three conditions, while the slider allows for variation in 
+        the number of clusters. <br><br>
+      </div>
       <div class="data-container">
-        <div class="content">
+        <div class="content center">
           Select Analysis Output<br>
           <select id="unsupervisedValueMap" onChange="javascript:clickUnsupervisedIndex()">
             <option>kmeans_results_all</option>
@@ -51,7 +59,7 @@
             <option>kmeans_results_curated</option>
           </select>
         </div>
-        <div class="content"> 
+        <div class="content center"> 
           <div id="unsupervisedSelectValue"></div>
           <input id="unsupervisedValueCluster" onChange="javascript:clickUnsupervisedIndex()" type="range" min="3" max="8" value="3" class="slider">
         </div>
