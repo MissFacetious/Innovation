@@ -14,13 +14,13 @@ function clickUnsupervisedIndex() {
   currentUnsupervisedCluster = 'clusters_'+valueCluster
 
   var selectValue = document.getElementById("unsupervisedSelectValue");
-  selectValue.innerHTML = "1249"; // time. will delete later.
+  selectValue.innerHTML = "File: " + valueMap + "<br/>Column: " + currentUnsupervisedCluster;
   updateUnsupervisedData();
 }
 
-var margin = {top: 5, right: 5, bottom: 5, left: 5}
-  , width = 600 - margin.left - margin.right // Use the window's width
-  , height = 470 - margin.top - margin.bottom; // Use the window's height
+var margin = {top: 100, right: 50, bottom: 50, left: 50}
+  , width = 700 - margin.left - margin.right // Use the window's width
+  , height = 550 - margin.top - margin.bottom; // Use the window's height
 
 var unsupervisedWorldInfo;
 var unsupervisedCountries = []
@@ -37,8 +37,8 @@ function unsupervisedChart() {
     .interpolator(d3.interpolateViridis);
 
   unsupervisedSvg = d3.select("#unsupervisedMap").append("svg")
-    .attr("width", 100%)
-    .attr("height", 100%);
+    .attr("width", width)
+    .attr("height", height);
 
   var projection = d3.geoEqualEarth()
   var path = d3.geoPath().projection(projection)
@@ -46,7 +46,7 @@ function unsupervisedChart() {
 
   unsupervisedSvg.append("g")
     .attr("class", "countries")
-    .attr("width", width-10)
+    .attr("width", width-100)
     .attr("height", height)
     .selectAll("path")
     .data(topojson.feature(unsupervisedWorldInfo, unsupervisedWorldInfo.objects.countries).features)
@@ -91,7 +91,7 @@ function updateUnsupervisedData() {
         unsupervisedLegend = unsupervisedSvg.append("g")
           .attr("class", "legend")
           .attr("id", "unsupervisedLegend")
-          .attr("x", width - 10)
+          .attr("x", width - 105)
           .attr("y", 75)
           .attr("height", 100)
           .attr("width", 100);
@@ -102,14 +102,14 @@ function updateUnsupervisedData() {
           .each(function(d, i) {
             var g = d3.select(this);
             g.append("rect")
-              .attr("x", width - margin.right - 60)
+              .attr("x", width - margin.right - 50)
               .attr("y", i*15)
               .attr("width", 10)
               .attr("height", 10)
               .style("fill", d.color)
 
             g.append("text")
-              .attr("x", width - margin.right - 40)
+              .attr("x", width - margin.right - 35)
               .attr("y", i * 15+8)
               .attr("text-anchor","start")
               .attr("height",30)
@@ -119,8 +119,8 @@ function updateUnsupervisedData() {
             });
 }
 
-var width = 600;
-var height = 470;
+var width = 975;
+var height = 475;
 
 var unsupervisedData = [[], [], [], [], [], []];
 
