@@ -13,8 +13,8 @@ function clickUnsupervisedIndex() {
   if (valueMap==='kmeans_results_curated') currentUnsupervisedMap = 5;
   currentUnsupervisedCluster = 'clusters_'+valueCluster
 
-  //var selectValue = document.getElementById("unsupervisedSelectValue");
-  //selectValue.innerHTML = "File: " + valueMap + "<br/>Column: " + currentUnsupervisedCluster;
+  var selectValue = document.getElementById("unsupervisedSelectValue");
+  selectValue.innerHTML = "1154"; // time. will delete later.
   updateUnsupervisedData();
 }
 
