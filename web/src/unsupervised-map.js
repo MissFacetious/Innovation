@@ -13,14 +13,14 @@ function clickUnsupervisedIndex() {
   if (valueMap==='kmeans_results_curated') currentUnsupervisedMap = 5;
   currentUnsupervisedCluster = 'clusters_'+valueCluster
 
-  var selectValue = document.getElementById("unsupervisedSelectValue");
-  selectValue.innerHTML = "File: " + valueMap + "<br/>Column: " + currentUnsupervisedCluster;
+  //var selectValue = document.getElementById("unsupervisedSelectValue");
+  //selectValue.innerHTML = "File: " + valueMap + "<br/>Column: " + currentUnsupervisedCluster;
   updateUnsupervisedData();
 }
 
 var margin = {top: 5, right: 5, bottom: 5, left: 5}
-  , width = 700 - margin.left - margin.right // Use the window's width
-  , height = 550 - margin.top - margin.bottom; // Use the window's height
+  , width = 600 - margin.left - margin.right // Use the window's width
+  , height = 470 - margin.top - margin.bottom; // Use the window's height
 
 var unsupervisedWorldInfo;
 var unsupervisedCountries = []
@@ -46,7 +46,7 @@ function unsupervisedChart() {
 
   unsupervisedSvg.append("g")
     .attr("class", "countries")
-    .attr("width", width-100)
+    .attr("width", width-10)
     .attr("height", height)
     .selectAll("path")
     .data(topojson.feature(unsupervisedWorldInfo, unsupervisedWorldInfo.objects.countries).features)
