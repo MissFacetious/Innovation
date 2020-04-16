@@ -243,6 +243,9 @@ a.white-text:hover {
 .red {
     border-color: #eb4034;
 }
+.purple {
+  border-color: #8938ab;
+}
 /* ANALYSIS PAGE */
 .gray-fill {
     font-size: 1.3em;
