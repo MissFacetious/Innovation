@@ -14,7 +14,7 @@ function clickUnsupervisedIndex() {
   currentUnsupervisedCluster = 'clusters_'+valueCluster
 
   var selectValue = document.getElementById("unsupervisedSelectValue");
-  selectValue.innerHTML = "1203"; // time. will delete later.
+  selectValue.innerHTML = "1211"; // time. will delete later.
   updateUnsupervisedData();
 }
 
@@ -102,7 +102,7 @@ function updateUnsupervisedData() {
           .each(function(d, i) {
             var g = d3.select(this);
             g.append("rect")
-              .attr("x", width - margin.right - 80)
+              .attr("x", width - margin.right - 60)
               .attr("y", i*15)
               .attr("width", 10)
               .attr("height", 10)
@@ -119,8 +119,8 @@ function updateUnsupervisedData() {
             });
 }
 
-var width = 800;
-var height = 390;
+var width = 600;
+var height = 470;
 
 var unsupervisedData = [[], [], [], [], [], []];
 
