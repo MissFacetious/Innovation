@@ -112,6 +112,16 @@ h3 {
     grid-column: span 3;
 }
 
+/* CONCLUSION PAGE */
+.factor-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto auto;
+    column-gap: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
 .container {
   margin: 10px;
 }
@@ -218,6 +228,12 @@ a.white-text:hover {
 }
 .text-yellow {
     color: #f6c143;
+}
+.orange {
+    border-color: #ff8303;
+}
+.red {
+    border-color: #eb4034;
 }
 /* ANALYSIS PAGE */
 .gray-fill {
