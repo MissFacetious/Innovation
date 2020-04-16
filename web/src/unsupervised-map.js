@@ -14,7 +14,8 @@ function clickUnsupervisedIndex() {
   currentUnsupervisedCluster = 'clusters_'+valueCluster
 
   var selectValue = document.getElementById("unsupervisedSelectValue");
-  selectValue.innerHTML = "File: " + valueMap + "<br/>Column: " + currentUnsupervisedCluster;
+  //selectValue.innerHTML = "File: " + valueMap + "<br/>Column: " + currentUnsupervisedCluster;
+  selectValue.innerHTML = "Current Number of Clusters: " + valueCluster;
   updateUnsupervisedData();
 }
 
