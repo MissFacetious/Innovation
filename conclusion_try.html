@@ -9,27 +9,33 @@
 </head>
 
 <body>
-  <div class="grid-banner">
-    <img class="center" src="./web/images/banner1.png" />
-    <img class="center" src="./web/images/banner2.png" />
-    <img class="center" src="./web/images/banner3.png" />
+  <!-- Navigation Bar -->
+  <div class="navigation-bar" id="navbar">
+    <img src="./logo.png">
+    <a class="btn" href="./index.html">Home</a>
+    <a class="btn" href="./data.html">Data</a>
+    <a class="btn" href="./analysis.html">Analysis</a>
+    <a class="btn active" href="./conclusion.html">Conclusion</a>
+    <a class="btn" href="./about.html">About Team 67</a>
   </div>
+  
+  <!-- Body -->
+  <div class="analysis-container">
+    <h1>Creative Innovation: Conclusions</h1>
+    <h3 class="text-normal center">
+      So, what factors make a country <span class="text-bold spaced text-blue ">INNOVATIVE</span>?
+    </h3>
 
-  <div class="container">
-    <h1>Creative Innovation: Happy, Healthy, Wealthy, or Wise?</h1>
-
-    <h3>Marc Boulet, Minkwon Lee, Michael Migliacio, Ricardo Stamato, Lisa Walkosz-Migliacio, Catherine Yin</h3>
-
-    <div class="large-words">So, what makes a country <span class="box blue-box">innovative</span>?</div>
-
-    <div class="main large-words">
-      <span class="box yellow-box">Happy</span>,
-      <span class="box red-box">Healthy</span>,
-      <span class="box green-box">Wealthy</span>, or/and
-      <span class="box orange-box">Wise</span>?
+    <!-- Innovation Factor Text Boxes -->
+    <div class='factor-container'>
+      <div class="squared yellow"><span class="spaced text-bold">HAPPY</span><br>Factors such as the happiness of the population</div>
+      <div class="squared red"><span class="spaced text-bold">HEALTHY</span><br>Factors such as life expectancy</div>
+      <div class="squared green"><span class="spaced text-bold">WEALTH</span><br>Factors such as the country's GDP</div>
+      <div class="squared orange"><span class="spaced text-bold">WISE</span><br>Factors such as the country's education level</div>
     </div>
-
-
+    
+    <br>
+    <!-- Flipping visualization -->
     <div class="text-box center blue-box">
       <div class="grid-box">
         <div class="item1"><img class="small-circle green-box" src="./web/images/piggy-bank_White.png" /></div>
@@ -44,10 +50,9 @@
       <div class="line">is the inflection point of an</div>
       <div class="line">i n n o v a t i v e &nbsp; &nbsp; s o c i e t y</div>
     </div>
-
-
-    <h1>Innovation Groups</h2>
-
+    
+    <!-- Lightbulb section -->
+    <h2>Innovation Groups</h2>
     <div class="grid-top">
       <div class="main-top">
         <div class="bulb">
@@ -58,13 +63,13 @@
         </div>
       </div>
       <div class="sidebar-top">
-        <h3><span id="top5-number"></span> <span id="top5-title"></span></h3>
+        <h3><span id="top5-number" class="center"></span> <span id="top5-title"></span></h3>
         <p id="top5-summary"></h4>
       </div>
     </div>
-
-    <h3 id="unsupervisedSelectValue"></h3>
-
+  
+    <!-- First choropleth -->
+    <h2 id="unsupervisedSelectValue"></h2>
     <div id="unsupervisedMap" class="map">
       <div onclick="javascript:clickUnsupervisedIndex('unsup_all_3clusters', true);" class="circle circle-border bottom over">
         <img class="circle blue-box" src="./web/images/light-bulb-Gear_White.png" />
@@ -76,22 +81,15 @@
         <img class="circle green-box" src="./web/images/piggy-bank_White.png" />
       </div>
     </div>
-
-    <h3 id="unsupervisedSelectDataValue"></h3>
+  
+    <!-- Second choropleth -->
+    <h2 id="unsupervisedSelectDataValue"></h2>
     <select id="unsupervisedValueDiffMap" onChange="javascript:clickUnsupervisedDiffIndex()">
       <option value="0">difference between combined and economic</option>
       <option value="1">difference between combined and creative</option>
       <option value="2">difference between combined with both economic and creative</option>
     </select>
-    <div id="unsupervisedDiffMap" class="map">
-
-    </div>
-
-  </div>
-
-  <div class="footer blue-box white-text">
-    <span class="left-footer"><a href="analysis.html" class="white-text"><</a> back to the analysis</span>
-    <span class="right-footer"></span>
+    <div id="unsupervisedDiffMap" class="map"></div>
   </div>
 
 <script src="./web/src/lightbulb.js"></script>
