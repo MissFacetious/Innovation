@@ -41,7 +41,7 @@ The model results and visualizations are contained in a website (https://github.
 
 The website will run automatically upon loading the page. The results from the models have already been outputted into .CSV files. However, users can access the GitHub to run the underlying code as well.
 
-**3.0.1 Data**
+**3.1 Data**
 
 The source links for the 40 datasets are included in the descriptions for each dataset in the Data folder. Most of the data sources provided an option to download the data directly. Otherwise, the sources contained tabulated data, making it easy to copy-paste the data into a .CSV file.
 
@@ -49,13 +49,13 @@ The code to cleanse and integrate these datasets can be found in the GitHub Data
 
 After cleaning the data, the mergeAll.ipynb Jupyter file (Data_Integration folder) was used to merge all the cleansed data into a single dataset.
 
-**3.0.2 Models**
+**3.2 Models**
 
 EDA (exploratory data analysis) was used to investigate the data prior to modeling. The corresponding Jupyter notebook is located in the Data_Analysis folder, which also contains subfolders for our supervised and unsupervised models.
 
 The Jupyter notebooks for both the supervised and unsupervised models are located in their respective subfolders. The supervised model notebook includes the feature selection as a component of the models run. Meanwhile, the unsupervised model subfolder breaks out the feature correlation analysis in a separate notebook. The notebook containing code for the unsupervised model can be run after exploring the data with feature correlation.
 
-**3.0.3 Website**
+**3.3 Website**
 
 As mentioned, the website will execute automatically after loading the page. To explore the underlying HTML/CSS/JavaScript components of the website (and accompanying visualizations), the user will be able to locate the files in the main GitHub folder and the Web subfolder. The HTML files for the different website pages (in tab order) are:
 1. Index.html
