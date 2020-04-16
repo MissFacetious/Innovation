@@ -69,7 +69,16 @@
     </div>
   
     <!-- First choropleth -->
+    <br>
     <h2 id="unsupervisedSelectValue"></h2>
+    <span class="text-bold">
+      Based on our analysis, the K-means unsupervised model with 3 clusters (evaluating both creative and economic factors) 
+      produced the best assessment of the innovation level of a country. 
+    </span>
+    <span class="text-normal">
+      By evaluating the countries grouped in each of the 3 clusters, we were able to determine which cluster consisted of 
+      countries with high, medium, and low levels of innovation (as seen in the map below).
+    </span>
     <div id="unsupervisedMap" class="map">
       <div onclick="javascript:clickUnsupervisedIndex('unsup_all_3clusters', true);" class="circle circle-border bottom over">
         <img class="circle blue-box" src="./web/images/light-bulb-Gear_White.png" />
@@ -84,6 +93,11 @@
   
     <!-- Second choropleth -->
     <h2 id="unsupervisedSelectDataValue"></h2>
+    <span class="text-normal">
+      There were three different combinations of input categories in our analysis: creative only, economic (non-creative) only, 
+      and both. Since we determined that the model with both creative and economic factors produced the best results, the visualization 
+      below can be used to quickly identify the differences in results for each of these models.
+    </span>
     <select id="unsupervisedValueDiffMap" onChange="javascript:clickUnsupervisedDiffIndex()">
       <option value="0">difference between combined and economic</option>
       <option value="1">difference between combined and creative</option>
