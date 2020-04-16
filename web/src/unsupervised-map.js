@@ -91,7 +91,7 @@ function updateUnsupervisedData() {
         unsupervisedLegend = unsupervisedSvg.append("g")
           .attr("class", "legend")
           .attr("id", "unsupervisedLegend")
-          .attr("x", width - 105)
+          .attr("x", width - 10)
           .attr("y", 75)
           .attr("height", 100)
           .attr("width", 100);
