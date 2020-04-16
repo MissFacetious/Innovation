@@ -45,7 +45,7 @@ function clickUnsupervisedDiffIndex(valueCluster) {
   currentUnsupervisedDiffCluster = +valueCluster;
   var selectValue = document.getElementById("unsupervisedSelectDataValue");
   if (+valueCluster === 0) valueCluster = 'Difference Between Combined and Economic Impact';
-  if (+valueCluster === 1) valueCluster = 'Difference Between Combined and Creavitve Impact';
+  if (+valueCluster === 1) valueCluster = 'Difference Between Combined and Creative Impact';
   if (+valueCluster === 2) valueCluster = 'Difference Between Combined With Both Economic and Creative Impact';
   selectValue.innerHTML = valueCluster;
   tipDiff.hide();
