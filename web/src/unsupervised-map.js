@@ -102,7 +102,7 @@ function updateUnsupervisedData() {
           .each(function(d, i) {
             var g = d3.select(this);
             g.append("rect")
-              .attr("x", width - margin.right - 5)
+              .attr("x", width - margin.right - 50)
               .attr("y", i*15)
               .attr("width", 10)
               .attr("height", 10)
