@@ -37,8 +37,8 @@ function unsupervisedChart() {
     .interpolator(d3.interpolateViridis);
 
   unsupervisedSvg = d3.select("#unsupervisedMap").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("width", 100%)
+    .attr("height", 100%);
 
   var projection = d3.geoEqualEarth()
   var path = d3.geoPath().projection(projection)
