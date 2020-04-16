@@ -39,6 +39,7 @@
     <div class="model-container" id="unsupervised-section">
       <div class="squared blue">
         <span class="text-bold spaced">Unsupervised Model</span>
+        <br>Select Analysis Output
         <div class="content">
           <select id="unsupervisedValueMap" onChange="javascript:clickUnsupervisedIndex()">
             <option>kmeans_results_all</option>
@@ -48,13 +49,13 @@
             <option>kmeans_results_curated_non_creative</option>
             <option>kmeans_results_curated</option>
           </select>
-
+          
+          <br><br>Cluster Number: <div id="unsupervisedSelectValue"></div>
           <input id="unsupervisedValueCluster" onChange="javascript:clickUnsupervisedIndex()" type="range" min="3" max="8" value="3" class="slider">
 
         </div>
       </div>
       <div class="squared blue">
-        <div id="unsupervisedSelectValue"></div>
         <div id="unsupervisedMap" class="unsupervisedMap"></div>
       </div>				
     </div>
