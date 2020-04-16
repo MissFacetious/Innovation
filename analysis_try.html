@@ -38,7 +38,7 @@
     <!-- Model section -->
     <div class="squared blue">
       <span class="text-bold spaced">Unsupervised Model</span>
-      <br>
+      <br><br>
       <div class="data-container">
         <div class="content">
           Select Analysis Output<br>
@@ -59,10 +59,22 @@
       <div id="unsupervisedMap" class="unsupervisedMap"></div>
     </div>
     
-    <div class="model-container" id="supervised-section">
-      lol supervised model
-      <br><br><br><br><br><br><br><br><br>
+    <div class="squared blue">
+      <span class="text-bold spaced">Supervised Model</span>
+      <br><br>
+      <div class="content">
+        Select Analysis Output<br>
+        <select id="supervisedValueMap" onChange="javascript:clickSupervisedIndex()">
+          <option value="0">original innovation index</option>
+          <option value="1">our rfe_prediction</option>
+          <option value="2">difference between innovation index and rfe prediction</option>
+          <option value="3">our lasso_prediction</option>
+          <option value="4">difference between innovation index and lasso prediction</option>
+        </select>
+      </div>
+      <div id="supervisedMap" class="supervisedMap"></div>
     </div>
+ 
   </div>
 
 <script src="https://d3js.org/d3.v5.min.js"></script>
