@@ -151,10 +151,10 @@ function updateUnsupervisedDiffData() {
 
       if (+currentUnsupervisedDiffCluster === 0)
         // green like money!
-        myColor.range(["#149c9366", "#77e83a"]);
+        myColor.range(["#149c9322", "#77e83a"]);
       else if (+currentUnsupervisedDiffCluster === 1)
         // pink purple creatives
-        myColor.range(["#683cb066", "#e637d4"]);
+        myColor.range(["#683cb022", "#e637d4"]);
       else if (+currentUnsupervisedDiffCluster === 2) {
         // blue, default
         myColor.range(["#3461eb", "#2e98d733", "#2aeef5"]);

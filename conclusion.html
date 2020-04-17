@@ -18,7 +18,7 @@
     <a class="btn active" href="./conclusion.html">Conclusion</a>
     <a class="btn" href="./about.html">About Team 67</a>
   </div>
-  
+
   <!-- Body -->
   <div class="analysis-container">
     <h1>Creative Innovation: Conclusions</h1>
@@ -33,24 +33,9 @@
       <div class="squared green"><span class="spaced text-bold">WEALTH</span><br>Factors such as the country's GDP?</div>
       <div class="squared orange"><span class="spaced text-bold">WISE</span><br>Factors such as the country's education level?</div>
     </div>
-    
+
     <br>
-    <!-- Flipping visualization -->
-    <div class="text-box center blue-box">
-      <div class="grid-box">
-        <div class="item1"><img class="small-circle green-box" src="./web/images/piggy-bank_White.png" /></div>
-        <div class="item2 spin seventh big" id="money" onmouseover="javascript:stopMoney();" onclick="javascript:stopMoney();">00k</div>
-        <div class="item3"></div>
-        <div class="item4 spin sixth big" id="education" onmouseover="javascript:stopEducation();" onclick="javascript:stopEducation();">BS</div>
-        <div class="item5 updown">bachelor's degree</div>
-        <div class="item6">$</div>
-        <div class="item7">&amp; a</div>
-        <div class="item8"><img class="small-circle orange-box" src="./web/images/grad-cap_White.png" /></div>
-      </div>
-      <div class="line">is the inflection point of an</div>
-      <div class="line">i n n o v a t i v e &nbsp; &nbsp; s o c i e t y</div>
-    </div>
-    
+
     <!-- Lightbulb section -->
     <h2>Innovation Groups</h2>
     <div class="grid-top">
@@ -67,18 +52,124 @@
         <p id="top5-summary"></h4>
       </div>
     </div>
-  
+
+    <!-- Flipping visualization -->
+    <div class="background">
+      <div class="container-grid center">
+
+        <div class="item-a box1 white-text white-border slightly-bigger">High innovation countries publish
+          <div class="seventh big" id="a1"
+            onmouseover="javascript:stopAnimation('a1', '3x');"
+            onclick="javascript:stopAnimation('a1', '3k');"
+            onmouseout="javascript:startAnimation('a1');">
+            3x
+          </div>
+          more scientific publications
+        </div>
+        <div class="item-a box2 white-text white-border"></div>
+        <div class="item-a box3 black-text white-border slightly-bigger">
+          High innovation countries spend
+          <div class="sixth big" id="a2"
+            onmouseover="javascript:stopAnimation('a2', '4x');"
+            onclick="javascript:stopAnimation('a2', '4k');"
+            onmouseout="javascript:startAnimation('a2');">
+            4x
+          </div>
+          more in R&D
+        </div>
+        <div class="item-a box4 white-text white-border slightly-bigger">
+          Low innovation countries have mortality rate
+          <div class="eighth big" id="a3"
+            onmouseover="javascript:stopAnimation('a3', '14x');"
+            onclick="javascript:stopAnimation('a3', '14x');"
+            onmouseout="javascript:startAnimation('a3');">
+            14x
+          </div>
+          higher than high innovation countries
+        </div>
+
+        <div class="item-a box5 white-text white-border">
+          GDP in high innovation countries is
+          <div class="sixth big" id="a4"
+            onmouseover="javascript:stopAnimation('a4', '3x');"
+            onclick="javascript:stopAnimation('a4', '3k');"
+            onmouseout="javascript:startAnimation('a4');">
+            6x
+          </div>
+          higher than medium innovation and
+          <div class="eighth big" id="a5"
+            onmouseover="javascript:stopAnimation('a5', '34x');"
+            onclick="javascript:stopAnimation('a5', '34x');"
+            onmouseout="javascript:startAnimation('a5');">
+            34x
+          </div>
+          higher than low innovation countries
+        </div>
+        <div class="item-a box7 white-text white-border slightly-bigger">
+          High innovation countries produce
+          <div class="seventh big" id="a6"
+            onmouseover="javascript:stopAnimation('a6', '5x');"
+            onclick="javascript:stopAnimation('a6', '2k');"
+            onmouseout="javascript:startAnimation('a6');">
+            2x
+          </div>
+          more feature films
+        </div>
+        <div class="item-a box6 white-text white-border">
+          High innvoation countries have
+          <div class="eighth big" id="a7"
+            onmouseover="javascript:stopAnimation('a7', '5x');"
+            onclick="javascript:stopAnimation('a7', '5k');"
+            onmouseout="javascript:startAnimation('a7');">
+            5x
+          </div>
+          more broadband subscriptions than medium and
+          <div class="eighth big" id="a8"
+            onmouseover="javascript:stopAnimation('a8', '175x');"
+            onclick="javascript:stopAnimation('a8', '175k');"
+            onmouseout="javascript:startAnimation('a8');">
+            175x
+          </div>more than low innovation countries
+        </div>
+        <div class="item-a box8 white-text white-border"></div>
+
+
+        <div class="item-a box9 white-text white-border"></div>
+        <div class="item-a box10 white-text white-border slightly-bigger">
+          <div class="seventh big" id="a9"
+            onmouseover="javascript:stopAnimation('a9', '30%');"
+            onclick="javascript:stopAnimation('a9', '30%');"
+            onmouseout="javascript:startAnimation('a9');">
+            30%
+          </div>
+          more people in high innovation countries are employed in cultural occupations
+        </div>
+        <div class="item-a box11 white-text white-border"></div>
+        <div class="item-a box12 black-text white-border slightly-bigger">
+          Literacy rate is
+          <div class="sixth big" id="a10"
+            onmouseover="javascript:stopAnimation('a10', '47%');"
+            onclick="javascript:stopAnimation('a10', '47%');"
+            onmouseout="javascript:startAnimation('a10');">
+            47%
+          </div>
+          higher in high and medium innovation countries than low innovation countries
+        </div>
+
+      </div>
+    </div>
+
     <!-- First choropleth -->
     <br>
     <h2 id="unsupervisedSelectValue"></h2>
     <h4>
-      Based on our analysis, the K-means unsupervised model with 3 clusters (evaluating both creative and economic factors) 
-      produced the best assessment of the innovation level of a country. 
+      Based on our analysis, the K-means unsupervised model with 3 clusters (evaluating both creative and economic factors)
+      produced the best assessment of the innovation level of a country.
     </h4>
     <h4 class="text-normal">
-      By evaluating the countries grouped in each of the 3 clusters, we were able to determine which cluster consisted of 
-      countries with high, medium, and low levels of innovation (as seen in the map below). By clicking on the circle icons, 
-      the map will update to show the clustering for factors that are creative only (purple hat), economic only (green pig), 
+      By evaluating the countries grouped in each of the 3 clusters, we were able to determine which cluster consisted of
+      countries with high, medium, and low levels of innovation (as seen in the map below). By clicking on the circle icons,
+      the map will update to show the clustering for factors that are creative only (purple hat), economic only (green pig),
       or both (blue lightbulb).
     </h4>
     <div id="unsupervisedMap" class="map">
@@ -92,12 +183,12 @@
         <img class="circle green-box" src="./web/images/piggy-bank_White.png" />
       </div>
     </div>
-  
+
     <!-- Second choropleth -->
     <h2 id="unsupervisedSelectDataValue"></h2>
     <h4 class="text-normal">
-      There were three different combinations of input categories in our analysis: creative only, economic (non-creative) only, 
-      and both. Since we determined that the model with both creative and economic factors produced the best results, the visualization 
+      There were three different combinations of input categories in our analysis: creative only, economic (non-creative) only,
+      and both. Since we determined that the model with both creative and economic factors produced the best results, the visualization
       below can be used to quickly identify the differences in results for each of these models.<br>
     </h4>
     <select id="unsupervisedValueDiffMap" onChange="javascript:clickUnsupervisedDiffIndex()">

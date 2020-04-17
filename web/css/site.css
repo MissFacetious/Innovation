@@ -24,12 +24,12 @@ h4 {
     background-color: #838383;
     overflow: hidden;
 }
-  
+
 .navigation-bar img {
     float: left;
     width: 200px;
     height: 45px;
-    padding: 2px;  
+    padding: 2px;
 }
 
 .navigation-bar a {
@@ -45,7 +45,7 @@ h4 {
     background-color: #ddd;
     color: black;
 }
-  
+
 .navigation-bar a.active {
     background-color: #7eaa55;
     color: white;
@@ -81,7 +81,7 @@ h4 {
 .right-container img {
     min-width: 420px;
     max-width: 100%;
-    height: auto; 
+    height: auto;
 }
 
 /* specific to HOME PAGE */
@@ -458,8 +458,8 @@ path {
   text-align: justify;
   text-justify: inter-word;
 }
-.item1 { grid-area: image1; margin-left: -10px; margin-right: -20px; }
-.item2 { grid-area: money; width: 150px; }
+.item1 { grid-area: image1; }
+.item2 { grid-area: money; width: 50px; }
 .item3 { grid-area: blank; }
 .item4 { grid-area: education; width: 100px; text-align: left; }
 .item5 { grid-area: horizontal; }
@@ -490,10 +490,69 @@ path {
   width: 15px;
   height: 50px;
   margin-left: -25px;
+  margin-top: 20px;
+}
+
+.container-grid {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: auto;
+}
+
+.white-border {
+  border-color: #ffffff;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.background {
+  background-color: yellow;
+}
+.item-a {
+  min-height: 200px;
+}
+.box1 {
+  background-color: #8dd3c7;
+}
+.box2 {
+  background-color: #ffffb3;
+}
+.box3 {
+  background-color: #bebada;
+}
+.box4 {
+  background-color: #fb8072;
+}
+.box5 {
+  background-color: #80b1d3;
+}
+.box6 {
+  background-color: #fdb462;
+}
+.box7 {
+  background-color: #b3de69;
+}
+.box8 {
+  background-color: #fccde5;
+}
+.box9 {
+  background-color: #d9d9d9;
+}
+.box10 {
+  background-color: #bc80bd;
+}
+.box11 {
+  background-color: #ccebc5;
+}
+.box12 {
+  background-color: #ffed6f;
 }
 
 .big {
   font-size: 3em;
+}
+.slightly-bigger {
+  font-size: 1.5em;
 }
 
 .small-circle {
@@ -598,6 +657,9 @@ path {
 }
 .seventh {
   animation-duration: 0.7s;
+}
+.eighth {
+  animation-duration: 0.8s;
 }
 
 @keyframes spin {
