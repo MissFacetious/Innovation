@@ -260,7 +260,7 @@ var maps = [
 
 var promises = [
   d3.json("./web/data/countries-50m.json"),
-  d3.dsv(",", "./data_analysis/unsupervised/data_analysis_final_results.csv", function(d) {
+  d3.dsv(",", "./web/data/data_analysis_final_results.csv", function(d) {
     unsupervisedData.push(d);
   })
 ]

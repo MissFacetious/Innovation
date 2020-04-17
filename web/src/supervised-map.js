@@ -136,7 +136,7 @@ var maps = [
 
 var promises = [
   d3.json("./web/data/countries-50m.json"),
-  d3.dsv(",", "./data_analysis/supervised/lr_predictions.csv", function(d) {
+  d3.dsv(",", "./web/data/lr_predictions.csv", function(d) {
     supervisedData.push(d);
   })
 ]
