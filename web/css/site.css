@@ -550,6 +550,7 @@ path {
 
 .big {
   font-size: 3em;
+  cursor: pointer;
 }
 .slightly-bigger {
   font-size: 1.5em;

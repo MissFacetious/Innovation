@@ -1,16 +1,3 @@
-//var element1 = document.getElementById("money");
-//var element2 = document.getElementById("education");
-
-startAnimation('a1')
-startAnimation('a2')
-startAnimation('a3')
-startAnimation('a4')
-startAnimation('a5')
-startAnimation('a6')
-startAnimation('a7')
-startAnimation('a8')
-startAnimation('a9')
-startAnimation('a10')
 var spin1 = true;
 var spin2 = true;
 var spin3 = true;
@@ -22,6 +9,16 @@ var spin8 = true;
 var spin9 = true;
 var spin10 = true;
 
+startAnimation('a1')
+startAnimation('a2')
+startAnimation('a3')
+startAnimation('a4')
+startAnimation('a5')
+startAnimation('a6')
+startAnimation('a7')
+startAnimation('a8')
+startAnimation('a9')
+startAnimation('a10')
 //randomNum();
 //randomLetter();
 
