@@ -7,7 +7,7 @@
 
 *DVA Spring 2020 Project*
 
-This project explores the factors that may play a role in determining the innovation level for a nation, specifically between economic and creative factors. We leveraged both supervised and unsupervised models to determine potential factors for innovation, and incorporated our analyses and conclusions in a GitHub-hosted website. The website also contains interactive visualizations that allow users to independently explore the results of our models and compare the differences between each model. This website can be found here: https://github.gatech.edu/pages/lwalkosz3/Innovation/
+This project explores the factors that may play a role in determining the innovation level for a nation, specifically between economic and creative factors. We leveraged both supervised and unsupervised models to determine potential factors for innovation, and incorporated our analyses and conclusions in a GitHub-hosted website. The website also contains interactive visualizations that allow users to independently explore the results of our models and compare the differences between each model. This website can be found here: https://missfacetious.github.io/Innovation/
 
 **1.1 MOTIVATION**
 
@@ -17,7 +17,7 @@ Is innovation impacted by the educational, personal, financial, and/or societal 
 
 **1.2 PACKAGE DESCRIPTION**
 
-All the project data and code are contained within a GitHub: https://github.gatech.edu/lwalkosz3/Innovation
+All the project data and code are contained within a GitHub: https://missfacetious.github.io/Innovation/
 
 **1.2.1 Data**
 
@@ -35,7 +35,7 @@ The website serves as a user-friendly platform containing major aspects of our p
 
 The data cleansing and modeling code require Python 3.7.x and are stored in Jupyter notebooks. The easiest way to interact with these notebooks would be to download Jupyter (either as a standalone software or with Anaconda). Prior to running the code in these notebooks, please install any necessary Python libraries.
 
-The model results and visualizations are contained in a website (https://github.gatech.edu/pages/lwalkosz3/Innovation/). If there are any issues loading the website or interacting with the visualizations, please make sure that your browser version is up-to-date. JavaScript also needs to be enabled for the D3 visualizations.
+The model results and visualizations are contained in a website (https://missfacetious.github.io/Innovation/). If there are any issues loading the website or interacting with the visualizations, please make sure that your browser version is up-to-date. JavaScript also needs to be enabled for the D3 visualizations.
 
 ## 3.0 EXECUTION
 
